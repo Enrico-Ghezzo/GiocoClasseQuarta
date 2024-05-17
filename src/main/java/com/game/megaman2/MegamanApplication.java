@@ -21,22 +21,20 @@ public class MegamanApplication extends GameApplication {
     protected void initInput() {
         onKey(KeyCode.D, () -> {
             player.translateX(5); // move right 5 pixels
-            inc("pixelsMoved", +5);
+            player.setScaleX(1.5);
         });
 
         onKey(KeyCode.A, () -> {
             player.translateX(-5); // move left 5 pixels
-            inc("pixelsMoved", -5);
+            player.setScaleX(-1.5);
         });
 
         onKey(KeyCode.W, () -> {
             player.translateY(-5); // move up 5 pixels
-            inc("pixelsMoved", +5);
         });
 
         onKey(KeyCode.S, () -> {
             player.translateY(5); // move down 5 pixels
-            inc("pixelsMoved", +5);
         });
 
         onKeyDown(KeyCode.F, () -> {
@@ -55,18 +53,13 @@ public class MegamanApplication extends GameApplication {
     protected void initGame() {
         player = entityBuilder()
                 .at(300, 300)
+                .scale(1.5, 1.5)
                 .view("spawn8.png")
                 .buildAndAttach();
     }
 
     @Override
     protected void initUI() {
-
-        var brickTexture = getAssetLoader().loadTexture("spawn8.png");
-        brickTexture.setTranslateX(50);
-        brickTexture.setTranslateY(450);
-
-        getGameScene().addUINode(brickTexture);
     }
 
     public static void main(String[] args) {
