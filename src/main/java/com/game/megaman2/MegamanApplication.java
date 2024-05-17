@@ -3,7 +3,10 @@ package com.game.megaman2;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.entity.Entity;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.*;
+
 import java.util.Map;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
@@ -11,8 +14,8 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 public class MegamanApplication extends GameApplication {
     @Override
     protected void initSettings(GameSettings settings) {
-        settings.setWidth(600);
-        settings.setHeight(600);
+        settings.setWidth(1920);
+        settings.setHeight(1080);
         settings.setTitle("Megaman");
         settings.setVersion("0.1");
     }
@@ -44,10 +47,10 @@ public class MegamanApplication extends GameApplication {
 
     @Override
     protected void initGameVars(Map<String, Object> vars) {
-        vars.put("pixelsMoved", 0);
     }
 
     private Entity player;
+    private StackPane stackPane;
 
     @Override
     protected void initGame() {
@@ -60,6 +63,8 @@ public class MegamanApplication extends GameApplication {
 
     @Override
     protected void initUI() {
+
+        getGameScene().setBackgroundRepeat("sfondo1.jpg");
     }
 
     public static void main(String[] args) {
