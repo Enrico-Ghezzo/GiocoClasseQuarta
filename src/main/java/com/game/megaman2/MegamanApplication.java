@@ -3,10 +3,10 @@ package com.game.megaman2;
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.entity.Entity;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.*;
+import javafx.stage.Screen;
 
+import java.awt.*;
 import java.util.Map;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
@@ -16,6 +16,8 @@ public class MegamanApplication extends GameApplication {
     protected void initSettings(GameSettings settings) {
         settings.setWidth(1920);
         settings.setHeight(1080);
+        settings.setFullScreenFromStart(true);
+        settings.setFullScreenAllowed(true);
         settings.setTitle("Megaman");
         settings.setVersion("0.1");
     }
@@ -23,21 +25,26 @@ public class MegamanApplication extends GameApplication {
     @Override
     protected void initInput() {
         onKey(KeyCode.D, () -> {
-            player.translateX(5); // move right 5 pixels
-            player.setScaleX(1.5);
+            if(!(player.getX() <= 0 || player.getX() >= Toolkit.getDefaultToolkit().getScreenSize().getWidth())){
+                player.translateX(velocity); // move right
+                player.setScaleX(playerScale);
+            }
         });
 
         onKey(KeyCode.A, () -> {
-            player.translateX(-5); // move left 5 pixels
-            player.setScaleX(-1.5);
+
+            if(!(player.getX() < 0 || player.getX() > Toolkit.getDefaultToolkit().getScreenSize().getWidth())){
+                player.translateX(-velocity); // move right
+                player.setScaleX(-playerScale);
+            }
         });
 
         onKey(KeyCode.W, () -> {
-            player.translateY(-5); // move up 5 pixels
+            player.translateY(-velocity); // move up
         });
 
         onKey(KeyCode.S, () -> {
-            player.translateY(5); // move down 5 pixels
+            player.translateY(velocity); // move down
         });
 
         onKeyDown(KeyCode.F, () -> {
@@ -45,25 +52,27 @@ public class MegamanApplication extends GameApplication {
         });
     }
 
+    private float playerScale;
+    private float velocity;
     @Override
     protected void initGameVars(Map<String, Object> vars) {
+        playerScale = 2.5f;
+        velocity = 6;
     }
 
     private Entity player;
-    private StackPane stackPane;
 
     @Override
     protected void initGame() {
         player = entityBuilder()
                 .at(300, 300)
-                .scale(1.5, 1.5)
+                .scale(playerScale, playerScale)
                 .view("spawn8.png")
                 .buildAndAttach();
     }
 
     @Override
     protected void initUI() {
-
         getGameScene().setBackgroundRepeat("sfondo1.jpg");
     }
 
