@@ -34,7 +34,7 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Move Right") {
             @Override
             protected void onAction() {
-                if (player.getRightX() + velocity <= getAppWidth()) {
+                if (player.getRightX() + velocity <= getAppWidth() - playerWidth) {
                     player.translateX(velocity); // move right
                     player.setScaleX(playerScale);
                     if (!isRunningRight) {
@@ -56,7 +56,7 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Move Left") {
             @Override
             protected void onAction() {
-                if (player.getRightX() + velocity <= getAppWidth()) {
+                if (player.getRightX() + velocity >= playerWidth) {
                     player.translateX(-velocity); // move left
                     player.setScaleX(-playerScale);
                     if (!isRunningRight) {
@@ -78,7 +78,7 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Move Up") {
             @Override
             protected void onAction() {
-                if (player.getRightX() + velocity <= getAppWidth()) {
+                if (player.getY() + velocity >= 0) {
                     player.translateY(-velocity); // move up
                     if (!isRunningRight) {
                         texture.loopAnimationChannel(animRun);
@@ -99,7 +99,7 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Move Down") {
             @Override
             protected void onAction() {
-                if (player.getRightX() + velocity <= getAppWidth()) {
+                if (player.getY() + velocity <= getAppHeight() - playerHeight) {
                     player.translateY(velocity); // move down
                     if (!isRunningRight) {
                         texture.loopAnimationChannel(animRun);
@@ -120,14 +120,6 @@ public class MegamanApplication extends GameApplication {
         onKeyDown(KeyCode.F, () -> {
             play("drop.wav");
         });
-
-//        onKeyDown(KeyCode.D, () -> {
-//            texture.loopAnimationChannel(animRun);
-//        });
-//
-//        onKeyDown(KeyCode.A, () -> {
-//            texture.loopAnimationChannel(animRun);
-//        });
     }
 
     private float playerScale;
@@ -152,7 +144,7 @@ public class MegamanApplication extends GameApplication {
         for (int i = 1; i <= 11; i++) {
             runFrames.add(FXGL.image("corsa/corsa" + i + ".png"));
         }
-        animRun = new AnimationChannel(runFrames, Duration.seconds(1));
+        animRun = new AnimationChannel(runFrames, Duration.seconds(0.5));
         runFrames.clear();
         runFrames.add(FXGL.image("spawn8.png"));
         animIdle = new AnimationChannel(runFrames, Duration.seconds(2));
@@ -173,7 +165,6 @@ public class MegamanApplication extends GameApplication {
     @Override
     protected void initUI() {
         getGameScene().setBackgroundRepeat("sfondo1.jpg");
-        getGameWorld().addEntity(player);
     }
 
     public static void main(String[] args) {
