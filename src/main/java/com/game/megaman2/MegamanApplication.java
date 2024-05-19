@@ -5,6 +5,9 @@ import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.input.UserAction;
+import com.almasb.fxgl.physics.PhysicsComponent;
+import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
+import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
 import com.almasb.fxgl.texture.Texture;
@@ -141,25 +144,35 @@ public class MegamanApplication extends GameApplication {
     @Override
     protected void initGame() {
         ArrayList runFrames = new ArrayList<>();
-        for (int i = 1; i <= 11; i++) {
-            runFrames.add(FXGL.image("corsa/corsa" + i + ".png"));
-        }
-        animRun = new AnimationChannel(runFrames, Duration.seconds(0.5));
-        runFrames.clear();
         runFrames.add(FXGL.image("spawn8.png"));
         animIdle = new AnimationChannel(runFrames, Duration.seconds(2));
         texture = new AnimatedTexture(animIdle);
 
+        //togliere per togliere fisica
+        var physics = new PhysicsComponent();
+        physics.setFixtureDef(new FixtureDef().density(6.5f).friction(1.0f).restitution(0.05f));
+        physics.setBodyType (BodyType.DYNAMIC);
+
         player = entityBuilder()
                 .at(300, 300)
                 .scale(playerScale, playerScale)
-                .view(texture)
+                .viewWithBBox(texture)  //mettere view per togliere fisica
                 .anchorFromCenter()
                 .collidable()
+                .with(physics)  //eliminare per togliere fisica
                 .buildAndAttach();
 
         playerWidth = player.getViewComponent().getChildren().get(0).getLayoutBounds().getWidth() * playerScale;
         playerHeight = player.getViewComponent().getChildren().get(0).getLayoutBounds().getHeight() * playerScale;
+
+        runFrames.clear();
+        for (int i = 1; i <= 11; i++) {
+            runFrames.add(FXGL.image("corsa/corsa" + i + ".png", (playerWidth+1)/playerScale, (playerHeight+1)/playerScale));
+        }
+        animRun = new AnimationChannel(runFrames, Duration.seconds(0.5));
+
+        entityBuilder()
+                .buildScreenBoundsAndAttach(100);
     }
 
     @Override
