@@ -37,19 +37,18 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Move Right") {
             @Override
             protected void onAction() {
-                if (player.getRightX() + velocity <= getAppWidth() - playerWidth) {
-                    player.translateX(velocity); // move right
-                    player.setScaleX(playerScale);
-                    if (!isRunningRight) {
-                        texture.loopAnimationChannel(animRun);
-                        isRunningRight = true;
-                    }
+                player.getComponent(PhysicsComponent.class).setVelocityX(velocity); // set velocity right
+                player.setScaleX(playerScale);
+                if (!isRunningRight) {
+                    texture.loopAnimationChannel(animRun);
+                    isRunningRight = true;
                 }
             }
 
             @Override
             protected void onActionEnd() {
                 if (isRunningRight) {
+                    player.getComponent(PhysicsComponent.class).setVelocityX(0); // stop moving
                     texture.loopAnimationChannel(animIdle);
                     isRunningRight = false;
                 }
@@ -59,19 +58,18 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Move Left") {
             @Override
             protected void onAction() {
-                if (player.getRightX() + velocity >= playerWidth) {
-                    player.translateX(-velocity); // move left
-                    player.setScaleX(-playerScale);
-                    if (!isRunningRight) {
-                        texture.loopAnimationChannel(animRun);
-                        isRunningRight = true;
-                    }
+                player.getComponent(PhysicsComponent.class).setVelocityX(-velocity); // set velocity left
+                player.setScaleX(-playerScale);
+                if (!isRunningRight) {
+                    texture.loopAnimationChannel(animRun);
+                    isRunningRight = true;
                 }
             }
 
             @Override
             protected void onActionEnd() {
                 if (isRunningRight) {
+                    player.getComponent(PhysicsComponent.class).setVelocityX(0); // stop moving
                     texture.loopAnimationChannel(animIdle);
                     isRunningRight = false;
                 }
@@ -81,18 +79,17 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Move Up") {
             @Override
             protected void onAction() {
-                if (player.getY() + velocity >= 0) {
-                    player.translateY(-velocity); // move up
-                    if (!isRunningRight) {
-                        texture.loopAnimationChannel(animRun);
-                        isRunningRight = true;
-                    }
+                player.getComponent(PhysicsComponent.class).setVelocityY(-velocity); // set velocity up
+                if (!isRunningRight) {
+                    texture.loopAnimationChannel(animRun);
+                    isRunningRight = true;
                 }
             }
 
             @Override
             protected void onActionEnd() {
                 if (isRunningRight) {
+                    player.getComponent(PhysicsComponent.class).setVelocityY(0); // stop moving
                     texture.loopAnimationChannel(animIdle);
                     isRunningRight = false;
                 }
@@ -102,27 +99,22 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Move Down") {
             @Override
             protected void onAction() {
-                if (player.getY() + velocity <= getAppHeight() - playerHeight) {
-                    player.translateY(velocity); // move down
-                    if (!isRunningRight) {
-                        texture.loopAnimationChannel(animRun);
-                        isRunningRight = true;
-                    }
+                player.getComponent(PhysicsComponent.class).setVelocityY(velocity); // set velocity down
+                if (!isRunningRight) {
+                    texture.loopAnimationChannel(animRun);
+                    isRunningRight = true;
                 }
             }
 
             @Override
             protected void onActionEnd() {
                 if (isRunningRight) {
+                    player.getComponent(PhysicsComponent.class).setVelocityY(0); // stop moving
                     texture.loopAnimationChannel(animIdle);
                     isRunningRight = false;
                 }
             }
         }, KeyCode.S);
-
-        onKeyDown(KeyCode.F, () -> {
-            play("drop.wav");
-        });
     }
 
     private float playerScale;
@@ -136,7 +128,7 @@ public class MegamanApplication extends GameApplication {
     @Override
     protected void initGameVars(Map<String, Object> vars) {
         playerScale = 2.5f;
-        velocity = 6;
+        velocity = 550;
     }
 
     private Entity player;
