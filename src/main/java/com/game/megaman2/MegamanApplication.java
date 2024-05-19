@@ -76,49 +76,17 @@ public class MegamanApplication extends GameApplication {
             }
         }, KeyCode.A);
 
-        FXGL.getInput().addAction(new UserAction("Move Up") {
+        FXGL.getInput().addAction(new UserAction("Jump") {
             @Override
-            protected void onAction() {
-                player.getComponent(PhysicsComponent.class).setVelocityY(-velocity); // set velocity up
-                if (!isRunningRight) {
-                    texture.loopAnimationChannel(animRun);
-                    isRunningRight = true;
-                }
+            protected void onActionBegin() {
+                player.getComponent(PhysicsComponent.class).setVelocityY(-jumpVelocity);
             }
-
-            @Override
-            protected void onActionEnd() {
-                if (isRunningRight) {
-                    player.getComponent(PhysicsComponent.class).setVelocityY(0); // stop moving
-                    texture.loopAnimationChannel(animIdle);
-                    isRunningRight = false;
-                }
-            }
-        }, KeyCode.W);
-
-        FXGL.getInput().addAction(new UserAction("Move Down") {
-            @Override
-            protected void onAction() {
-                player.getComponent(PhysicsComponent.class).setVelocityY(velocity); // set velocity down
-                if (!isRunningRight) {
-                    texture.loopAnimationChannel(animRun);
-                    isRunningRight = true;
-                }
-            }
-
-            @Override
-            protected void onActionEnd() {
-                if (isRunningRight) {
-                    player.getComponent(PhysicsComponent.class).setVelocityY(0); // stop moving
-                    texture.loopAnimationChannel(animIdle);
-                    isRunningRight = false;
-                }
-            }
-        }, KeyCode.S);
+        }, KeyCode.SPACE);
     }
 
     private float playerScale;
     private float velocity;
+    private float jumpVelocity;
     private double playerWidth;
     private double playerHeight;
     private AnimationChannel animIdle, animRun;
@@ -129,6 +97,7 @@ public class MegamanApplication extends GameApplication {
     protected void initGameVars(Map<String, Object> vars) {
         playerScale = 2.5f;
         velocity = 550;
+        jumpVelocity = 350;
     }
 
     private Entity player;
@@ -146,7 +115,7 @@ public class MegamanApplication extends GameApplication {
         physics.setBodyType (BodyType.DYNAMIC);
 
         player = entityBuilder()
-                .at(300, 300)
+                .at(texture.getWidth(), getAppHeight()-texture.getHeight()/2)
                 .scale(playerScale, playerScale)
                 .viewWithBBox(texture)  //mettere view per togliere fisica
                 .anchorFromCenter()
