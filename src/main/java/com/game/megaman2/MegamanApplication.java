@@ -72,6 +72,7 @@ public class MegamanApplication extends GameApplication {
                     player.getComponent(PhysicsComponent.class).setVelocityX(0); // stop moving
                     texture.loopAnimationChannel(animIdle);
                     isRunningRight = false;
+
                 }
             }
         }, KeyCode.A);
@@ -79,9 +80,17 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Jump") {
             @Override
             protected void onActionBegin() {
-                //if(player.getComponent(PhysicsComponent.class).isOnGround()){
-                    player.getComponent(PhysicsComponent.class).setVelocityY(-jumpVelocity);
-                //}
+
+
+
+                        if(player.getBottomY()== 1054){//verifico se è dove spawna
+                        player.getComponent(PhysicsComponent.class).setVelocityY(-jumpVelocity);}
+
+
+
+
+
+
             }
         }, KeyCode.SPACE);
     }
@@ -94,6 +103,10 @@ public class MegamanApplication extends GameApplication {
     private AnimationChannel animIdle, animRun;
     private AnimatedTexture texture;
     private boolean isRunningRight;
+
+
+
+    private int jump=0;
 
     @Override
     protected void initGameVars(Map<String, Object> vars) {
