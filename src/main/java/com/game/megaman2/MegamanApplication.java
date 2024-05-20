@@ -79,7 +79,9 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Jump") {
             @Override
             protected void onActionBegin() {
-                player.getComponent(PhysicsComponent.class).setVelocityY(-jumpVelocity);
+                //if(player.getComponent(PhysicsComponent.class).isOnGround()){
+                    player.getComponent(PhysicsComponent.class).setVelocityY(-jumpVelocity);
+                //}
             }
         }, KeyCode.SPACE);
     }
@@ -112,10 +114,10 @@ public class MegamanApplication extends GameApplication {
         //togliere per togliere fisica
         var physics = new PhysicsComponent();
         physics.setFixtureDef(new FixtureDef().density(6.5f).friction(1.0f).restitution(0.05f));
-        physics.setBodyType (BodyType.DYNAMIC);
+        physics.setBodyType(BodyType.DYNAMIC);
 
         player = entityBuilder()
-                .at(texture.getWidth(), getAppHeight()-texture.getHeight()/2)
+                .at(texture.getWidth() * 2, getAppHeight()-texture.getHeight()*2)
                 .scale(playerScale, playerScale)
                 .viewWithBBox(texture)  //mettere view per togliere fisica
                 .anchorFromCenter()
@@ -132,6 +134,7 @@ public class MegamanApplication extends GameApplication {
         }
         animRun = new AnimationChannel(runFrames, Duration.seconds(0.5));
 
+        //mette i limiti alla schermata
         entityBuilder()
                 .buildScreenBoundsAndAttach(100);
     }
