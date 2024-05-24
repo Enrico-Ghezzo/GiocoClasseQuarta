@@ -21,20 +21,21 @@ public class FabbricaEntita implements EntityFactory {
         physics.setBodyType(BodyType.DYNAMIC);
 
         return new EntityBuilder()
-                //.at(((AnimatedTexture)data.get("texture")).getWidth() * 2, getAppHeight()-((AnimatedTexture)data.get("texture")).getHeight()*2)
                 .at(data.getX(), data.getY())
-                .scale(data.get("playerScale"), data.get("playerScale"))
-                .viewWithBBox((Node)data.get("texture"))//mettere view per togliere fisica
+                .type(PokemonTypes.PLAYER)
+                .bbox(new HitBox(BoundingShape.box(14,21)))
                 .anchorFromCenter()
                 .collidable()
                 .with(physics) //eliminare per togliere fisica
+                .with(new PlayerControl())
                 .build();
     }
 
     @Spawns("oggettoSolido")
-    public Entity newOggettoSolido(SpawnData data) {
+    public Entity newOggettoSolido(SpawnData data) {    //per il collisionHandler guarda: https://www.youtube.com/watch?v=37wfF9GW1vQ&t=1457s
         return new EntityBuilder()
                 .from(data)
+                .type(PokemonTypes.OGGETTOSOLIDO)
                 .bbox(new HitBox(BoundingShape.box(((int)data.get("width")), ((int)data.get("height")))))
                 .with(new PhysicsComponent())
                 .build();

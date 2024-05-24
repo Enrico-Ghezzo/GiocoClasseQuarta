@@ -41,101 +41,55 @@ public class PokemonApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Move Right") {
             @Override
             protected void onAction() {
-                player.getComponent(PhysicsComponent.class).setVelocityX(velocity); // set velocity right
-                player.setScaleX(-playerScale);
-                if (!isRunningRight) {
-                    texture.loopAnimationChannel(animRunSide);
-                    isRunningRight = true;
-                }
+                player.getComponent(PlayerControl.class).right();
             }
 
             @Override
             protected void onActionEnd() {
-                if (isRunningRight) {
-                    player.getComponent(PhysicsComponent.class).setVelocityX(0); // stop moving
-                    texture.loopAnimationChannel(animIdle);
-                    isRunningRight = false;
-                }
+                player.getComponent(PlayerControl.class).ferma();
             }
         }, KeyCode.D);
 
         FXGL.getInput().addAction(new UserAction("Move Left") {
             @Override
             protected void onAction() {
-                player.getComponent(PhysicsComponent.class).setVelocityX(-velocity); // set velocity left
-                player.setScaleX(playerScale);
-                if (!isRunningRight) {
-                    texture.loopAnimationChannel(animRunSide);
-                    isRunningRight = true;
-                }
+                player.getComponent(PlayerControl.class).left();
             }
 
             @Override
             protected void onActionEnd() {
-                if (isRunningRight) {
-                    player.getComponent(PhysicsComponent.class).setVelocityX(0); // stop moving
-                    texture.loopAnimationChannel(animIdle);
-                    isRunningRight = false;
-
-                }
+                player.getComponent(PlayerControl.class).ferma();
             }
         }, KeyCode.A);
 
         FXGL.getInput().addAction(new UserAction("Move Up") {
             @Override
             protected void onAction() {
-                player.getComponent(PhysicsComponent.class).setVelocityY(-velocity); // set velocity right
-                player.setScaleX(-playerScale);
-                if (!isRunningRight) {
-                    texture.loopAnimationChannel(animRunUp);
-                    isRunningRight = true;
-                }
+                player.getComponent(PlayerControl.class).up();
             }
 
             @Override
             protected void onActionEnd() {
-                if (isRunningRight) {
-                    player.getComponent(PhysicsComponent.class).setVelocityY(0); // stop moving
-                    texture.loopAnimationChannel(animIdle);
-                    isRunningRight = false;
-                }
+                player.getComponent(PlayerControl.class).ferma();
             }
         }, KeyCode.W);
 
         FXGL.getInput().addAction(new UserAction("Move Down") {
             @Override
             protected void onAction() {
-                player.getComponent(PhysicsComponent.class).setVelocityY(velocity); // set velocity right
-                player.setScaleX(playerScale);
-                if (!isRunningRight) {
-                    texture.loopAnimationChannel(animRunDown);
-                    isRunningRight = true;
-                }
+                player.getComponent(PlayerControl.class).down();
             }
 
             @Override
             protected void onActionEnd() {
-                if (isRunningRight) {
-                    player.getComponent(PhysicsComponent.class).setVelocityY(0); // stop moving
-                    texture.loopAnimationChannel(animIdle);
-                    isRunningRight = false;
-                }
+                player.getComponent(PlayerControl.class).ferma();
             }
         }, KeyCode.S);
     }
 
-    private double playerScale;
-    private float velocity;
-    private double playerWidth;
-    private double playerHeight;
-    private AnimationChannel animIdle, animRunSide, animRunUp, animRunDown;
-    private AnimatedTexture texture;
-    private boolean isRunningRight;
-
     @Override
     protected void initGameVars(Map<String, Object> vars) {
-        playerScale = 2.5f;
-        velocity = 200;
+
     }
 
     private Entity player;
@@ -146,37 +100,7 @@ public class PokemonApplication extends GameApplication {
 
         FXGL.setLevelFromMap("livello.tmx");
 
-        ArrayList runFrames = new ArrayList<>();
-        runFrames.add(FXGL.image("matteolongobardi.png"));
-        animIdle = new AnimationChannel(runFrames, Duration.seconds(2));
-        texture = new AnimatedTexture(animIdle);
-
-        player = getGameWorld().spawn("player", new SpawnData().put("texture", texture).put("playerScale", playerScale));
-
-        playerWidth = player.getViewComponent().getChildren().get(0).getLayoutBounds().getWidth() * playerScale;
-        playerHeight = player.getViewComponent().getChildren().get(0).getLayoutBounds().getHeight() * playerScale;
-
-        runFrames.clear();
-        for (int i = 1; i <= 6; i++) {
-            runFrames.add(FXGL.image("corsalaterale/corsalaterale" + i + ".png", (playerWidth+1)/playerScale, (playerHeight+1)/playerScale));
-        }
-        animRunSide = new AnimationChannel(runFrames, Duration.seconds(0.5));
-
-        runFrames.clear();
-        for (int i = 1; i <= 6; i++) {
-            runFrames.add(FXGL.image("corsasu/corsasu" + i + ".png", (playerWidth+1)/playerScale, (playerHeight+1)/playerScale));
-        }
-        animRunUp = new AnimationChannel(runFrames, Duration.seconds(0.5));
-
-        runFrames.clear();
-        for (int i = 1; i <= 6; i++) {
-            runFrames.add(FXGL.image("corsagiu/corsagiu" + i + ".png", (playerWidth+1)/playerScale, (playerHeight+1)/playerScale));
-        }
-        animRunDown = new AnimationChannel(runFrames, Duration.seconds(0.5));
-
-        //mette i limiti alla schermata
-        entityBuilder()
-                .buildScreenBoundsAndAttach(playerHeight);
+        player = getGameWorld().spawn("player");
     }
 
     @Override
