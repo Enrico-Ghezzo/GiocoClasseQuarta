@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.game</groupId>
-    <artifactId>Megaman2</artifactId>
+    <artifactId>Pokemon</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Megaman2</name>
 
@@ -75,7 +75,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.game.megaman2/com.game.megaman2.MegamanApplication</mainClass>
+                            <mainClass>com.game.megaman2/com.game.pokemon.PokemonApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
