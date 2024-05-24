@@ -2,8 +2,12 @@ package com.game.megaman2;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
+import com.almasb.fxgl.app.scene.FXGLDefaultMenu;
+import com.almasb.fxgl.app.scene.FXGLMenu;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
+import com.almasb.fxgl.entity.SpawnData;
+import com.almasb.fxgl.entity.level.Level;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
@@ -11,7 +15,12 @@ import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
 import com.almasb.fxgl.texture.Texture;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.control.Menu;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.Background;
 import javafx.stage.Screen;
 import javafx.util.Duration;
 
@@ -22,6 +31,7 @@ import java.util.Map;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class MegamanApplication extends GameApplication {
+
     @Override
     protected void initSettings(GameSettings settings) {
         settings.setWidth((int)Toolkit.getDefaultToolkit().getScreenSize().getWidth());
@@ -30,6 +40,8 @@ public class MegamanApplication extends GameApplication {
         settings.setFullScreenAllowed(true);
         settings.setTitle("Megaman");
         settings.setVersion("0.1");
+        settings.setMainMenuEnabled(true);
+        settings.setSceneFactory(new FabbricaScene());
     }
 
     @Override
@@ -80,22 +92,13 @@ public class MegamanApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Jump") {
             @Override
             protected void onActionBegin() {
-
-
-
-                        if(player.getBottomY()== 1054){//verifico se è dove spawna
+                        if(player.getBottomY()>= getAppHeight()-playerHeight/2){//verifico se è dove spawna
                         player.getComponent(PhysicsComponent.class).setVelocityY(-jumpVelocity);}
-
-
-
-
-
-
             }
         }, KeyCode.SPACE);
     }
 
-    private float playerScale;
+    private double playerScale;
     private float velocity;
     private float jumpVelocity;
     private double playerWidth;
@@ -103,10 +106,6 @@ public class MegamanApplication extends GameApplication {
     private AnimationChannel animIdle, animRun;
     private AnimatedTexture texture;
     private boolean isRunningRight;
-
-
-
-    private int jump=0;
 
     @Override
     protected void initGameVars(Map<String, Object> vars) {
@@ -119,24 +118,15 @@ public class MegamanApplication extends GameApplication {
 
     @Override
     protected void initGame() {
+        getGameWorld().addEntityFactory(new FabbricaEntita());
+        //FXGL.setLevelFromMap("livello.tmx");
+
         ArrayList runFrames = new ArrayList<>();
         runFrames.add(FXGL.image("spawn8.png"));
         animIdle = new AnimationChannel(runFrames, Duration.seconds(2));
         texture = new AnimatedTexture(animIdle);
 
-        //togliere per togliere fisica
-        var physics = new PhysicsComponent();
-        physics.setFixtureDef(new FixtureDef().density(6.5f).friction(1.0f).restitution(0.05f));
-        physics.setBodyType(BodyType.DYNAMIC);
-
-        player = entityBuilder()
-                .at(texture.getWidth() * 2, getAppHeight()-texture.getHeight()*2)
-                .scale(playerScale, playerScale)
-                .viewWithBBox(texture)  //mettere view per togliere fisica
-                .anchorFromCenter()
-                .collidable()
-                .with(physics)  //eliminare per togliere fisica
-                .buildAndAttach();
+        player = getGameWorld().spawn("player", new SpawnData().put("texture", texture). put("playerScale", playerScale));
 
         playerWidth = player.getViewComponent().getChildren().get(0).getLayoutBounds().getWidth() * playerScale;
         playerHeight = player.getViewComponent().getChildren().get(0).getLayoutBounds().getHeight() * playerScale;
@@ -145,16 +135,17 @@ public class MegamanApplication extends GameApplication {
         for (int i = 1; i <= 11; i++) {
             runFrames.add(FXGL.image("corsa/corsa" + i + ".png", (playerWidth+1)/playerScale, (playerHeight+1)/playerScale));
         }
+
         animRun = new AnimationChannel(runFrames, Duration.seconds(0.5));
 
         //mette i limiti alla schermata
         entityBuilder()
-                .buildScreenBoundsAndAttach(100);
+                .buildScreenBoundsAndAttach(playerHeight);
     }
 
     @Override
     protected void initUI() {
-        getGameScene().setBackgroundRepeat("sfondo1.jpg");
+        //getGameScene().setBackgroundRepeat("sfondo1.jpg");
     }
 
     public static void main(String[] args) {
