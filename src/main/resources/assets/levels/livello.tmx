@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" class="Map" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="6" nextobjectid="1">
- <tileset firstgid="1" source="Terrain.tsx"/>
+<map version="1.10" tiledversion="1.10.2" class="Map" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="7" nextobjectid="5">
+ <tileset firstgid="1" name="Terrain" tilewidth="16" tileheight="16" spacing="1" tilecount="336" columns="21">
+  <image source="Terrain.png" width="356" height="271"/>
+  <wangsets>
+   <wangset name="strade set" type="mixed" tile="-1">
+    <wangcolor name="strada normale" class="Strada" color="#ff0000" tile="-1" probability="1"/>
+    <wangtile tileid="66" wangid="0,0,0,1,0,0,0,0"/>
+    <wangtile tileid="67" wangid="0,0,0,1,1,1,0,0"/>
+    <wangtile tileid="68" wangid="0,0,0,0,0,1,0,0"/>
+    <wangtile tileid="87" wangid="0,1,1,1,0,0,0,0"/>
+    <wangtile tileid="88" wangid="1,1,1,1,1,1,1,1"/>
+    <wangtile tileid="89" wangid="0,0,0,0,0,1,1,1"/>
+    <wangtile tileid="108" wangid="0,1,0,0,0,0,0,0"/>
+    <wangtile tileid="109" wangid="1,1,0,0,0,0,0,1"/>
+    <wangtile tileid="110" wangid="0,0,0,0,0,0,0,1"/>
+   </wangset>
+  </wangsets>
+ </tileset>
  <layer id="5" name="ground" width="200" height="200">
   <data encoding="csv">
 28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,29,94,94,94,94,94,94,94,94,95,34,34,34,34,2,33,2,34,2,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,4,34,34,34,34,35,34,34,34,93,94,94,94,94,27,28,28,28,30,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,53,28,29,94,94,95,34,2,33,34,34,34,34,34,34,34,34,34,34,34,33,34,34,34,34,34,34,34,88,89,89,89,89,89,90,34,34,34,34,34,35,34,34,34,34,34,34,34,34,34,34,34,2,34,34,34,34,35,34,34,93,94,94,94,94,94,94,27,28,28,28,28,28,28,28,28,28,28,28,
@@ -205,4 +221,8 @@
 31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,32,28,28,28,28,29,94,94,94,94,95,99,100,33,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,99,100,99,100,99,100,99,100,99,100,99,100,34,34,34,34,34,34,35,34,34,93,94,94,94,27,28,28,30,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,32,28,28,28,28,29,94,94,94,94,95,99,100,34,33,34,34,34,34,34,34,34,34,34,34,99,100
 </data>
  </layer>
+ <objectgroup id="6" name="Livello di oggetti 1">
+  <object id="2" type="oggettoSolido" x="752" y="64" width="62.5" height="80.5"/>
+  <object id="3" type="oggettoSolido" x="864" y="63.5" width="126.5" height="79.5"/>
+ </objectgroup>
 </map>

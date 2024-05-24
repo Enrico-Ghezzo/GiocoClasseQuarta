@@ -7,6 +7,7 @@ import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.PhysicsComponent;
+import com.almasb.fxgl.physics.PhysicsWorld;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
 import javafx.scene.input.KeyCode;
@@ -27,6 +28,12 @@ public class PokemonApplication extends GameApplication {
         settings.setVersion("0.1");
         settings.setMainMenuEnabled(true);
         settings.setSceneFactory(new FabbricaScene());
+    }
+
+    @Override
+    protected void initPhysics() {
+        PhysicsWorld physicsWorld = getPhysicsWorld();
+        physicsWorld.setGravity(0, 0); // Disable gravity by setting it to (0, 0)
     }
 
     @Override
@@ -136,14 +143,15 @@ public class PokemonApplication extends GameApplication {
     @Override
     protected void initGame() {
         getGameWorld().addEntityFactory(new FabbricaEntita());
-        //FXGL.setLevelFromMap("livello.tmx");
+
+        FXGL.setLevelFromMap("livello.tmx");
 
         ArrayList runFrames = new ArrayList<>();
         runFrames.add(FXGL.image("matteolongobardi.png"));
         animIdle = new AnimationChannel(runFrames, Duration.seconds(2));
         texture = new AnimatedTexture(animIdle);
 
-        player = getGameWorld().spawn("player", new SpawnData().put("texture", texture). put("playerScale", playerScale));
+        player = getGameWorld().spawn("player", new SpawnData().put("texture", texture).put("playerScale", playerScale));
 
         playerWidth = player.getViewComponent().getChildren().get(0).getLayoutBounds().getWidth() * playerScale;
         playerHeight = player.getViewComponent().getChildren().get(0).getLayoutBounds().getHeight() * playerScale;
@@ -173,7 +181,7 @@ public class PokemonApplication extends GameApplication {
 
     @Override
     protected void initUI() {
-        getGameScene().setBackgroundRepeat("sfondo1.jpg");
+
     }
 
     public static void main(String[] args) {
