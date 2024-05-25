@@ -1,13 +1,10 @@
 package com.game.pokemon;
 
-import com.almasb.fxgl.core.math.FXGLMath;
 import com.almasb.fxgl.dsl.FXGL;
-import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
-import com.almasb.fxgl.texture.Texture;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -16,29 +13,29 @@ public class PlayerControl extends Component {
     private PhysicsComponent physics;
     private AnimationChannel animIdle, animRunSide, animRunUp, animRunDown;
     private AnimatedTexture texture;
-    private double playerScale = 2.5f;
+    private double playerScale = 1.5f;
     private float velocity = 200;
 
     public PlayerControl() {
         ArrayList runFrames = new ArrayList<>();
-        runFrames.add(FXGL.image("matteolongobardi.png"));
+        runFrames.add(FXGL.image("matteolongobardi.png", 14*playerScale, 21*playerScale));
         animIdle = new AnimationChannel(runFrames, Duration.seconds(2));
         texture = new AnimatedTexture(animIdle);
         runFrames.clear();
         for (int i = 1; i <= 6; i++) {
-            runFrames.add(FXGL.image("corsalaterale/corsalaterale" + i + ".png"));
+            runFrames.add(FXGL.image("corsalaterale/corsalaterale" + i + ".png", 14*playerScale, 21*playerScale));
         }
         animRunSide = new AnimationChannel(runFrames, Duration.seconds(0.5));
 
         runFrames.clear();
         for (int i = 1; i <= 6; i++) {
-            runFrames.add(FXGL.image("corsasu/corsasu" + i + ".png"));
+            runFrames.add(FXGL.image("corsasu/corsasu" + i + ".png", 14*playerScale, 21*playerScale));
         }
         animRunUp = new AnimationChannel(runFrames, Duration.seconds(0.5));
 
         runFrames.clear();
         for (int i = 1; i <= 6; i++) {
-            runFrames.add(FXGL.image("corsagiu/corsagiu" + i + ".png"));
+            runFrames.add(FXGL.image("corsagiu/corsagiu" + i + ".png", 14*playerScale, 21*playerScale));
         }
         animRunDown = new AnimationChannel(runFrames, Duration.seconds(0.5));
     }
@@ -54,7 +51,7 @@ public class PlayerControl extends Component {
             texture.loopAnimationChannel(animRunSide);
         }
 
-        texture.setScaleX(-playerScale);
+        texture.setScaleX(-1);
     }
 
     public void left(){
@@ -62,7 +59,7 @@ public class PlayerControl extends Component {
         if(!(texture.getAnimationChannel() == animRunSide)){
             texture.loopAnimationChannel(animRunSide);
         }
-        texture.setScaleX(playerScale);
+        texture.setScaleX(1);
     }
 
     public void up(){

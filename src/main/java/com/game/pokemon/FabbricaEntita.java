@@ -23,7 +23,7 @@ public class FabbricaEntita implements EntityFactory {
         return new EntityBuilder()
                 .at(data.getX(), data.getY())
                 .type(PokemonTypes.PLAYER)
-                .bbox(new HitBox(BoundingShape.box(14,21)))
+                .bbox(new HitBox(BoundingShape.box(14*1.5,21*1.5)))
                 .anchorFromCenter()
                 .collidable()
                 .with(physics) //eliminare per togliere fisica

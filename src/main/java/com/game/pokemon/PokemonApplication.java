@@ -101,6 +101,9 @@ public class PokemonApplication extends GameApplication {
         FXGL.setLevelFromMap("livello.tmx");
 
         player = getGameWorld().spawn("player");
+
+        getGameScene().getViewport().bindToEntity(player, getAppWidth()/2, getAppHeight()/2);
+        getGameScene().getViewport().setZoom(1.5f);
     }
 
     @Override
