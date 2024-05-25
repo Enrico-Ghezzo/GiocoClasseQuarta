@@ -4,7 +4,7 @@ open module com.game.megaman2 {
 
     requires com.almasb.fxgl.all;
     requires java.desktop;
+    requires annotations;
 
-    //opens com.game.pokemon to javafx.fxml;
     exports com.game.pokemon;
 }

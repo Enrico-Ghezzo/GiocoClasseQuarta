@@ -2,6 +2,7 @@ package com.game.pokemon;
 
 import com.almasb.fxgl.app.GameApplication;
 import com.almasb.fxgl.app.GameSettings;
+import com.almasb.fxgl.audio.Music;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
@@ -10,6 +11,7 @@ import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.PhysicsWorld;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
+import javafx.event.EventType;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 
@@ -19,6 +21,9 @@ import java.util.Map;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class PokemonApplication extends GameApplication {
+
+    private Entity player;
+    private Music gameMusic;
 
     @Override
     protected void initSettings(GameSettings settings) {
@@ -87,28 +92,30 @@ public class PokemonApplication extends GameApplication {
         }, KeyCode.S);
     }
 
-    @Override
-    protected void initGameVars(Map<String, Object> vars) {
-
-    }
-
-    private Entity player;
 
     @Override
     protected void initGame() {
+        //crea una nuova fabbrica di entità
         getGameWorld().addEntityFactory(new FabbricaEntita());
 
+        //inserisce la mappa con tutte le sue collisioni
         FXGL.setLevelFromMap("livello.tmx");
 
+        //inserisce il player
         player = getGameWorld().spawn("player");
 
+        //sistema la camera
         getGameScene().getViewport().bindToEntity(player, getAppWidth()/2, getAppHeight()/2);
         getGameScene().getViewport().setZoom(1.5f);
+
+        //aggiunge la musica di sottofondo
+        gameMusic = FXGL.getAssetLoader().loadMusic("musicaSottofondo.mp3");
+        FXGL.getAudioPlayer().loopMusic(gameMusic);
     }
 
     @Override
-    protected void initUI() {
-
+    protected void onPreInit() {
+        FXGL.getAudioPlayer().stopAllMusic();
     }
 
     public static void main(String[] args) {
