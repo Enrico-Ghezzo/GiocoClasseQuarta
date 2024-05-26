@@ -36,7 +36,7 @@ public class PokemonApplication extends GameApplication {
         settings.setVersion("0.1");
         settings.setMainMenuEnabled(true);
         settings.setSceneFactory(new FabbricaScene());
-        //settings.setIntroEnabled(true);
+        settings.setIntroEnabled(true);
     }
 
     //INIZIALIZZA LA FISICA DEL GIOCO

@@ -14,7 +14,7 @@ public class PlayerControl extends Component {
     private AnimationChannel animIdle, animRunSide, animRunUp, animRunDown;
     private AnimatedTexture texture;
     private double playerScale = 1.5f;
-    private float velocity = 200;
+    private float velocity = 100;
 
     public PlayerControl() {
         //CARICA LE ANIMAZIONI IN MEMORIA
@@ -26,19 +26,19 @@ public class PlayerControl extends Component {
         for (int i = 1; i <= 6; i++) {
             runFrames.add(FXGL.image("corsalaterale/corsalaterale" + i + ".png", 14*playerScale, 21*playerScale));
         }
-        animRunSide = new AnimationChannel(runFrames, Duration.seconds(0.5));
+        animRunSide = new AnimationChannel(runFrames, Duration.seconds(1));
 
         runFrames.clear();
         for (int i = 1; i <= 6; i++) {
             runFrames.add(FXGL.image("corsasu/corsasu" + i + ".png", 14*playerScale, 21*playerScale));
         }
-        animRunUp = new AnimationChannel(runFrames, Duration.seconds(0.5));
+        animRunUp = new AnimationChannel(runFrames, Duration.seconds(1));
 
         runFrames.clear();
         for (int i = 1; i <= 6; i++) {
             runFrames.add(FXGL.image("corsagiu/corsagiu" + i + ".png", 14*playerScale, 21*playerScale));
         }
-        animRunDown = new AnimationChannel(runFrames, Duration.seconds(0.5));
+        animRunDown = new AnimationChannel(runFrames, Duration.seconds(1));
     }
 
     @Override
