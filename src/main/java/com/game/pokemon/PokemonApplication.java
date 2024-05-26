@@ -24,6 +24,7 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 public class PokemonApplication extends GameApplication {
 
     private Entity player;  //giocatore
+    private Entity spawn;
     private Music gameMusic;    //musica del gioco
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
@@ -35,7 +36,7 @@ public class PokemonApplication extends GameApplication {
         settings.setVersion("0.1");
         settings.setMainMenuEnabled(true);
         settings.setSceneFactory(new FabbricaScene());
-        settings.setIntroEnabled(true);
+        //settings.setIntroEnabled(true);
     }
 
     //INIZIALIZZA LA FISICA DEL GIOCO
@@ -105,10 +106,23 @@ public class PokemonApplication extends GameApplication {
         getGameWorld().addEntityFactory(new FabbricaEntita());
 
         //inserisce la mappa con tutte le sue collisioni
-        FXGL.setLevelFromMap("livello.tmx");
+        var map = FXGL.setLevelFromMap("livello.tmx");
+
+        double spawnX = 0, spawnY = 0;
+        for(int i = 0; i<200; i++){
+            try{
+                if(map.getEntities().get(i).getType().toString() == "SPAWNPOINT"){
+                    spawnX = map.getEntities().get(i).getX();
+                    spawnY = map.getEntities().get(i).getY();
+                }
+            }
+            catch(Exception e){
+                break;
+            }
+        }
 
         //inserisce il player
-        player = getGameWorld().spawn("player");
+        player = getGameWorld().spawn("player", spawnX, spawnY);
 
         //sistema la camera
         getGameScene().getViewport().bindToEntity(player, getAppWidth()/2, getAppHeight()/2);

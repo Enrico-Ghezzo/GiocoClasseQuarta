@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" class="Map" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="7" nextobjectid="5">
+<map version="1.10" tiledversion="1.10.2" class="Map" orientation="orthogonal" renderorder="left-down" width="200" height="200" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="7" nextobjectid="23">
  <tileset firstgid="1" name="Terrain" tilewidth="16" tileheight="16" spacing="1" tilecount="336" columns="21">
   <image source="Terrain.png" width="356" height="271"/>
   <wangsets>
@@ -224,5 +224,22 @@
  <objectgroup id="6" name="Livello di oggetti 1">
   <object id="2" type="oggettoSolido" x="752" y="64" width="62.5" height="80.5"/>
   <object id="3" type="oggettoSolido" x="864" y="63.5" width="126.5" height="79.5"/>
+  <object id="8" name="spawn" type="spawnPoint" x="781.5" y="176">
+   <point/>
+  </object>
+  <object id="9" type="oggettoSolido" x="1136.5" y="624.5" width="79" height="78.5"/>
+  <object id="10" type="oggettoSolido" x="2080.5" y="64" width="79" height="79.5"/>
+  <object id="11" type="oggettoSolido" x="2320.5" y="64.5" width="62.5" height="79.5"/>
+  <object id="12" type="oggettoSolido" x="2689" y="64" width="77.5" height="78.5"/>
+  <object id="13" type="oggettoSolido" x="336.5" y="1763" width="110" height="76.5"/>
+  <object id="14" type="oggettoSolido" x="177" y="2002.75" width="110" height="76.5"/>
+  <object id="15" type="oggettoSolido" x="450" y="2002.75" width="110" height="76.5"/>
+  <object id="16" type="oggettoSolido" x="1904.5" y="2003.75" width="110" height="76.5"/>
+  <object id="17" type="oggettoSolido" x="2321" y="2001.75" width="110" height="76.5"/>
+  <object id="18" type="oggettoSolido" x="2433" y="627.75" width="110" height="76.5"/>
+  <object id="19" type="oggettoSolido" x="288.25" y="2002.75" width="80.25" height="76.75"/>
+  <object id="20" type="oggettoSolido" x="1119.21" y="2002.29" width="80.25" height="76.75"/>
+  <object id="21" type="oggettoSolido" x="2559.21" y="2003.62" width="80.25" height="76.75"/>
+  <object id="22" type="oggettoSolido" x="2031.38" y="627.125" width="80.25" height="76.75"/>
  </objectgroup>
 </map>

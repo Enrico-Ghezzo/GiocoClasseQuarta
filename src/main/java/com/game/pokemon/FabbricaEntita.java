@@ -41,4 +41,12 @@ public class FabbricaEntita implements EntityFactory {
                 .with(new PhysicsComponent())
                 .build();
     }
+
+    @Spawns("spawnPoint")
+    public Entity newSpawn(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNPOINT)
+                .build();
+    }
 }
