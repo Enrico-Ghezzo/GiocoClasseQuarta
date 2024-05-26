@@ -15,6 +15,6 @@ public class GameMenu extends FXGLDefaultMenu {
     @Override
     public void onExitingTo(@NotNull Scene nextState) {
         super.onExitingTo(nextState);
-        FXGL.getAudioPlayer().stopAllSoundsAndMusic();
+        FXGL.getAudioPlayer().stopAllSoundsAndMusic();  //ferma tutti i suoni e le musiche quando si esce e si va al menu principale
     }
 }

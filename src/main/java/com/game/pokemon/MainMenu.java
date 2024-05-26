@@ -12,24 +12,21 @@ public class MainMenu extends FXGLDefaultMenu {
 
     public MainMenu(MenuType type) {
         super(type);
-        musicaMenu = FXGL.getAssetLoader().loadMusic("musicaMenu.mp3");
+        musicaMenu = FXGL.getAssetLoader().loadMusic("musicaMenu.mp3"); //carica in memoria la musica del menu principale
     }
 
     @Override
     public void onEnteredFrom(@NotNull Scene prevState) {
             super.onEnteredFrom(prevState);
-            // Stop any game music
-            FXGL.getAudioPlayer().stopAllSoundsAndMusic();
 
-            // Load and play the main menu music
-            var menuMusic = FXGL.getAssetLoader().loadMusic("musicaMenu.mp3");
-            FXGL.getAudioPlayer().loopMusic(menuMusic);
+            FXGL.getAudioPlayer().stopAllSoundsAndMusic();  //ferma tutti i suoni e le musiche quando si passa al menu principale
+            FXGL.getAudioPlayer().loopMusic(musicaMenu);    //fa iniziare la musica del menu
 
     }
 
     @Override
     public void onExitingTo(@NotNull Scene nextState) {
         super.onExitingTo(nextState);
-        FXGL.getAudioPlayer().stopAllSoundsAndMusic();
+        FXGL.getAudioPlayer().stopAllSoundsAndMusic();  //ferma tutti i suoni e le musiche del menu principale quando si esce dal menu
     }
 }

@@ -17,6 +17,7 @@ public class PlayerControl extends Component {
     private float velocity = 200;
 
     public PlayerControl() {
+        //CARICA LE ANIMAZIONI IN MEMORIA
         ArrayList runFrames = new ArrayList<>();
         runFrames.add(FXGL.image("matteolongobardi.png", 14*playerScale, 21*playerScale));
         animIdle = new AnimationChannel(runFrames, Duration.seconds(2));
@@ -45,35 +46,48 @@ public class PlayerControl extends Component {
         entity.getViewComponent().addChild(texture); //mette la texture
     }
 
+    @Override
+    public void onUpdate(double tpf) {
+        //ANIMAZIONI IN BASE AL MOVIMENTO DEL PERSONAGGIO
+        if(physics.getVelocityX() > 0 && physics.getVelocityY() == 0){  //se va a destra
+            if(!(texture.getAnimationChannel() == animRunSide)){
+                texture.loopAnimationChannel(animRunSide);
+            }
+            texture.setScaleX(-1);
+        }
+        if(physics.getVelocityX() < 0 && physics.getVelocityY() == 0){  //se va a sinistra
+            if(!(texture.getAnimationChannel() == animRunSide)){
+                texture.loopAnimationChannel(animRunSide);
+            }
+            texture.setScaleX(1);
+        }
+        if(physics.getVelocityY() < 0 && physics.getVelocityX() == 0){  //se va su
+            if(!(texture.getAnimationChannel() == animRunUp)){
+                texture.loopAnimationChannel(animRunUp);
+            }
+        }
+        if(physics.getVelocityY() > 0 && physics.getVelocityX() == 0){  //se va giu
+            if(!(texture.getAnimationChannel() == animRunDown)){
+                texture.loopAnimationChannel(animRunDown);
+            }
+        }
+    }
+
+    //FUNZIONI PER IL MOVIMENTO
     public void right(){
         physics.setVelocityX(velocity); // set velocity right
-        if(!(texture.getAnimationChannel() == animRunSide)){
-            texture.loopAnimationChannel(animRunSide);
-        }
-
-        texture.setScaleX(-1);
     }
 
     public void left(){
         physics.setVelocityX(-velocity); // set velocity right
-        if(!(texture.getAnimationChannel() == animRunSide)){
-            texture.loopAnimationChannel(animRunSide);
-        }
-        texture.setScaleX(1);
     }
 
     public void up(){
         physics.setVelocityY(-velocity); // set velocity right
-        if(!(texture.getAnimationChannel() == animRunUp)){
-            texture.loopAnimationChannel(animRunUp);
-        }
     }
 
     public void down(){
         physics.setVelocityY(velocity); // set velocity right
-        if(!(texture.getAnimationChannel() == animRunDown)){
-            texture.loopAnimationChannel(animRunDown);
-        }
     }
 
     public void ferma(){

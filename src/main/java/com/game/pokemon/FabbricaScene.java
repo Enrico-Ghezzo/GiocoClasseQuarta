@@ -5,10 +5,12 @@ import com.almasb.fxgl.app.scene.MenuType;
 import com.almasb.fxgl.app.scene.SceneFactory;
 
 public class FabbricaScene extends SceneFactory {
+    //CREA IL NUOVO MENU PRINCIPALE
     public FXGLMenu newMainMenu(){
         return new MainMenu(MenuType.MAIN_MENU);
     }
 
+    //CREA IL NUOVO MENU DEL GIOCO
     @Override
     public FXGLMenu newGameMenu() {
         return super.newGameMenu();

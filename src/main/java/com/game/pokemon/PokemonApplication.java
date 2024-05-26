@@ -6,6 +6,7 @@ import com.almasb.fxgl.audio.Music;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
+import com.almasb.fxgl.input.InputSequence;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.PhysicsWorld;
@@ -22,9 +23,10 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class PokemonApplication extends GameApplication {
 
-    private Entity player;
-    private Music gameMusic;
+    private Entity player;  //giocatore
+    private Music gameMusic;    //musica del gioco
 
+    //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
     protected void initSettings(GameSettings settings) {
         settings.setWidth(1000);
@@ -33,14 +35,17 @@ public class PokemonApplication extends GameApplication {
         settings.setVersion("0.1");
         settings.setMainMenuEnabled(true);
         settings.setSceneFactory(new FabbricaScene());
+        settings.setIntroEnabled(true);
     }
 
+    //INIZIALIZZA LA FISICA DEL GIOCO
     @Override
     protected void initPhysics() {
         PhysicsWorld physicsWorld = getPhysicsWorld();
-        physicsWorld.setGravity(0, 0); // Disable gravity by setting it to (0, 0)
+        physicsWorld.setGravity(0, 0);
     }
 
+    //INIZIALIZZA L'INPUT DEL PLAYER
     @Override
     protected void initInput() {
         FXGL.getInput().addAction(new UserAction("Move Right") {
@@ -93,6 +98,7 @@ public class PokemonApplication extends GameApplication {
     }
 
 
+    //INIZIALIZZA IL GIOCO IN GENERALE
     @Override
     protected void initGame() {
         //crea una nuova fabbrica di entità
@@ -113,11 +119,13 @@ public class PokemonApplication extends GameApplication {
         FXGL.getAudioPlayer().loopMusic(gameMusic);
     }
 
+    //INIZIALIZZA ANCORA ROBA PRIMA DI INITGAME
     @Override
     protected void onPreInit() {
         FXGL.getAudioPlayer().stopAllMusic();
     }
 
+    //LANCIA IL GIOCO
     public static void main(String[] args) {
         launch(args);
     }

@@ -10,10 +10,10 @@ import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
 import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
-import javafx.scene.Node;
 
 public class FabbricaEntita implements EntityFactory {
 
+    //DEFINISCE L'ENTITA' DEL GIOCATORE
     @Spawns("player")
     public Entity newPlayer(SpawnData data) {
         var physics = new PhysicsComponent();
@@ -31,6 +31,7 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    //DEFINISCE LE COLLISIONI DELLA MAPPA
     @Spawns("oggettoSolido")
     public Entity newOggettoSolido(SpawnData data) {    //per il collisionHandler guarda: https://www.youtube.com/watch?v=37wfF9GW1vQ&t=1457s
         return new EntityBuilder()
