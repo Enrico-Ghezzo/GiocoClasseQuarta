@@ -24,7 +24,6 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 public class PokemonApplication extends GameApplication {
 
     private Entity player;  //giocatore
-    private Entity spawn;
     private Music gameMusic;    //musica del gioco
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
@@ -109,7 +108,8 @@ public class PokemonApplication extends GameApplication {
         var map = FXGL.setLevelFromMap("livello.tmx");
 
         double spawnX = 0, spawnY = 0;
-        for(int i = 0; i<200; i++){
+        int i = 0;
+        while(true){
             try{
                 if(map.getEntities().get(i).getType().toString() == "SPAWNPOINT"){
                     spawnX = map.getEntities().get(i).getX();
@@ -119,6 +119,7 @@ public class PokemonApplication extends GameApplication {
             catch(Exception e){
                 break;
             }
+            i++;
         }
 
         //inserisce il player

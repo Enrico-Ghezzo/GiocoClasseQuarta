@@ -49,4 +49,12 @@ public class FabbricaEntita implements EntityFactory {
                 .type(PokemonTypes.SPAWNPOINT)
                 .build();
     }
+
+    @Spawns("spawnSaffi")
+    public Entity newSpawnSaffi(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNSAFFI)
+                .build();
+    }
 }

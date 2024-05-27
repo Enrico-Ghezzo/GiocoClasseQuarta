@@ -1,5 +1,5 @@
 package com.game.pokemon;
 
 public enum PokemonTypes {
-    PLAYER, OGGETTOSOLIDO, SPAWNPOINT
+    PLAYER, OGGETTOSOLIDO, SPAWNPOINT, SAFFI, SPAWNSAFFI
 }
