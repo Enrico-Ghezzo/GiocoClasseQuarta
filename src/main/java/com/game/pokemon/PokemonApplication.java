@@ -8,6 +8,7 @@ import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
 import com.almasb.fxgl.input.InputSequence;
 import com.almasb.fxgl.input.UserAction;
+import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.PhysicsWorld;
 import com.almasb.fxgl.texture.AnimatedTexture;
@@ -23,8 +24,9 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class PokemonApplication extends GameApplication {
 
-    private Entity player;  //giocatore
+    private Entity player, saffi;  //giocatore
     private Music gameMusic;    //musica del gioco
+    private Boolean parlaSaffi;
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
@@ -36,6 +38,7 @@ public class PokemonApplication extends GameApplication {
         settings.setMainMenuEnabled(true);
         settings.setSceneFactory(new FabbricaScene());
         settings.setIntroEnabled(true);
+        settings.setDeveloperMenuEnabled(true);
     }
 
     //INIZIALIZZA LA FISICA DEL GIOCO
@@ -43,6 +46,22 @@ public class PokemonApplication extends GameApplication {
     protected void initPhysics() {
         PhysicsWorld physicsWorld = getPhysicsWorld();
         physicsWorld.setGravity(0, 0);
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PLAYER, PokemonTypes.SAFFI){
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                parlaSaffi = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                parlaSaffi = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                parlaSaffi = false;
+            }
+        });
     }
 
     //INIZIALIZZA L'INPUT DEL PLAYER
@@ -95,8 +114,16 @@ public class PokemonApplication extends GameApplication {
                 player.getComponent(PlayerControl.class).ferma();
             }
         }, KeyCode.S);
-    }
 
+        FXGL.getInput().addAction(new UserAction("Talk") {
+            @Override
+            protected void onActionBegin() {
+                if(parlaSaffi){
+                    getDialogService().showMessageBox("SAFFI: BUONGIORNO SIGNORI!!!!", () -> {});
+                }
+            }
+        }, KeyCode.E);
+    }
 
     //INIZIALIZZA IL GIOCO IN GENERALE
     @Override
@@ -107,13 +134,28 @@ public class PokemonApplication extends GameApplication {
         //inserisce la mappa con tutte le sue collisioni
         var map = FXGL.setLevelFromMap("livello.tmx");
 
-        double spawnX = 0, spawnY = 0;
+        double spawnPlayerX = 0, spawnPlayerY = 0;
         int i = 0;
         while(true){
             try{
                 if(map.getEntities().get(i).getType().toString() == "SPAWNPOINT"){
-                    spawnX = map.getEntities().get(i).getX();
-                    spawnY = map.getEntities().get(i).getY();
+                    spawnPlayerX = map.getEntities().get(i).getX();
+                    spawnPlayerY = map.getEntities().get(i).getY();
+                }
+            }
+            catch(Exception e){
+                break;
+            }
+            i++;
+        }
+
+        double spawnSaffiX = 0, spawnSaffiY = 0;
+        i = 0;
+        while(true){
+            try{
+                if(map.getEntities().get(i).getType().toString() == "SPAWNSAFFI"){
+                    spawnSaffiX = map.getEntities().get(i).getX();
+                    spawnSaffiY = map.getEntities().get(i).getY();
                 }
             }
             catch(Exception e){
@@ -123,7 +165,8 @@ public class PokemonApplication extends GameApplication {
         }
 
         //inserisce il player
-        player = getGameWorld().spawn("player", spawnX, spawnY);
+        player = getGameWorld().spawn("player", spawnPlayerX, spawnPlayerY);
+        saffi = getGameWorld().spawn("saffi", spawnSaffiX, spawnSaffiY);
 
         //sistema la camera
         getGameScene().getViewport().bindToEntity(player, getAppWidth()/2, getAppHeight()/2);
