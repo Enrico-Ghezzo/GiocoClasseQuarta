@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="left-down" width="250" height="250" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="11" nextobjectid="26">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="left-down" width="250" height="250" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="11" nextobjectid="28">
  <tileset firstgid="1" name="Terrain" tilewidth="16" tileheight="16" spacing="1" tilecount="336" columns="21">
-  <image source="../Downloads/Terrain.png" width="356" height="271"/>
+  <image source="Terrain.png" width="356" height="271"/>
  </tileset>
  <layer id="5" name="ground" width="250" height="250" offsetx="0.0301818" offsety="-0.0572727">
   <data encoding="csv">
@@ -262,5 +262,8 @@
    <point/>
   </object>
   <object id="24" type="oggettoSolido" x="1151.09" y="467.091" width="65.8182" height="78"/>
+  <object id="27" type="spawnSaffi" x="2523" y="1124">
+   <point/>
+  </object>
  </objectgroup>
 </map>
