@@ -26,7 +26,7 @@ public class PokemonApplication extends GameApplication {
 
     private Entity player, saffi;  //giocatore
     private Music gameMusic;    //musica del gioco
-    private Boolean parlaSaffi;
+    private Boolean parlaSaffi = false;
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
@@ -37,7 +37,7 @@ public class PokemonApplication extends GameApplication {
         settings.setVersion("0.1");
         settings.setMainMenuEnabled(true);
         settings.setSceneFactory(new FabbricaScene());
-        settings.setIntroEnabled(true);
+        //settings.setIntroEnabled(true);
         settings.setDeveloperMenuEnabled(true);
     }
 
@@ -123,6 +123,13 @@ public class PokemonApplication extends GameApplication {
                 }
             }
         }, KeyCode.E);
+
+        FXGL.getInput().addAction(new UserAction("Attack") {
+            @Override
+            protected void onActionBegin() {
+                player.getComponent(PlayerControl.class).attacca();
+            }
+        }, KeyCode.F);
     }
 
     //INIZIALIZZA IL GIOCO IN GENERALE
