@@ -173,10 +173,11 @@ public class PokemonApplication extends GameApplication {
 
         //inserisce il player
         player = getGameWorld().spawn("player", spawnPlayerX, spawnPlayerY);
+        player.getComponent(BarraVitaComponent.class).setPosition(getAppWidth()/2, getAppHeight()/2, player.getHeight()/2 + 15);
         saffi = getGameWorld().spawn("saffi", spawnSaffiX, spawnSaffiY);
 
         //sistema la camera
-        getGameScene().getViewport().bindToEntity(player, getAppWidth()/2, getAppHeight()/2);
+        getGameScene().getViewport().bindToEntity(player, getAppWidth()/2 - player.getWidth()/2, getAppHeight()/2 - player.getHeight()/2);
         getGameScene().getViewport().setZoom(1.5f);
 
         //aggiunge la musica di sottofondo

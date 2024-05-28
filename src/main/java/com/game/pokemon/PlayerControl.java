@@ -10,6 +10,7 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 
 public class PlayerControl extends Component {
+    private int vita = 100;
     private PhysicsComponent physics;
     private AnimationChannel animIdle, animRunSide, animRunUp, animRunDown, animAttackDown, animAttackSide, animAttackUp;
     private AnimatedTexture texture;
@@ -168,5 +169,13 @@ public class PlayerControl extends Component {
 
         }
 
+    }
+
+    public int getVita() {
+        return vita;
+    }
+
+    public void togliVita(int dannoSubito){
+        vita = vita - dannoSubito;
     }
 }

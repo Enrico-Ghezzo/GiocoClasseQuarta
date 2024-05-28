@@ -30,6 +30,7 @@ public class FabbricaEntita implements EntityFactory {
                 .with(physics) //eliminare per togliere fisica
                 .with(new CollidableComponent(true))
                 .with(new PlayerControl())
+                .with(new BarraVitaComponent())
                 .build();
     }
 
