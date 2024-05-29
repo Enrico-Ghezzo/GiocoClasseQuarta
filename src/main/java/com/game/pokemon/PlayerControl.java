@@ -10,7 +10,6 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 
 public class PlayerControl extends Component {
-    private int vita = 100;
     private PhysicsComponent physics;
     private AnimationChannel animIdle, animRunSide, animRunUp, animRunDown, animAttackDown, animAttackSide, animAttackUp;
     private AnimatedTexture texture;
@@ -72,7 +71,7 @@ public class PlayerControl extends Component {
     @Override
     public void onUpdate(double tpf) {
         //ANIMAZIONI IN BASE AL MOVIMENTO DEL PERSONAGGIO
-        if (texture.getAnimationChannel() != animAttackDown) {
+        if (texture.getAnimationChannel() != animAttackDown || texture.getAnimationChannel() != animAttackSide || texture.getAnimationChannel() != animAttackUp) {
             if(physics.getVelocityX() > 0 && physics.getVelocityY() == 0){  //se va a destra
                 if(!(texture.getAnimationChannel() == animRunSide) || isStopped){
                     texture.loopAnimationChannel(animRunSide);
@@ -129,8 +128,6 @@ public class PlayerControl extends Component {
         physics.setVelocityY(0);
         texture.stop();
         isStopped = true;
-        //texture.loopAnimationChannel(animIdle);
-
     }
 
     public void attacca(){
@@ -171,11 +168,4 @@ public class PlayerControl extends Component {
 
     }
 
-    public int getVita() {
-        return vita;
-    }
-
-    public void togliVita(int dannoSubito){
-        vita = vita - dannoSubito;
-    }
 }

@@ -2,8 +2,10 @@ package com.game.pokemon;
 
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.component.Component;
+import com.almasb.fxgl.ui.Position;
 import com.almasb.fxgl.ui.ProgressBar;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.awt.*;
 
@@ -15,22 +17,18 @@ public class BarraVitaComponent extends Component {
         progressBar.setCurrentValue(100);
 
         progressBar.setFill(Color.rgb(255, 0, 0));
-        progressBar.setWidth(50);
+        progressBar.setWidth(30);
         progressBar.setHeight(10);
     }
 
     @Override
     public void onAdded() {
-        FXGL.getGameScene().addUINode(progressBar);
+        entity.getViewComponent().addChild(progressBar);
+        progressBar.setTranslateY(6.5 - 15);
     }
 
     @Override
     public void onUpdate(double tpf) {
-        progressBar.setCurrentValue(entity.getComponent(PlayerControl.class).getVita());
-    }
-
-    public void setPosition(double x, double y, double paddingFromBottom) {
-        progressBar.setTranslateX(x - 20);
-        progressBar.setTranslateY(y - paddingFromBottom);
+        progressBar.setCurrentValue(entity.getComponent(VitaComponent.class).getVita());
     }
 }

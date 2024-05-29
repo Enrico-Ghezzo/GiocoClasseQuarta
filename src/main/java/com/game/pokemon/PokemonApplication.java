@@ -128,6 +128,7 @@ public class PokemonApplication extends GameApplication {
             @Override
             protected void onActionBegin() {
                 player.getComponent(PlayerControl.class).attacca();
+                player.getComponent(VitaComponent.class).prendiDanno(10);
             }
         }, KeyCode.F);
     }
@@ -173,7 +174,6 @@ public class PokemonApplication extends GameApplication {
 
         //inserisce il player
         player = getGameWorld().spawn("player", spawnPlayerX, spawnPlayerY);
-        player.getComponent(BarraVitaComponent.class).setPosition(getAppWidth()/2, getAppHeight()/2, player.getHeight()/2 + 15);
         saffi = getGameWorld().spawn("saffi", spawnSaffiX, spawnSaffiY);
 
         //sistema la camera

@@ -31,6 +31,7 @@ public class FabbricaEntita implements EntityFactory {
                 .with(new CollidableComponent(true))
                 .with(new PlayerControl())
                 .with(new BarraVitaComponent())
+                .with(new VitaComponent(100))
                 .build();
     }
 
