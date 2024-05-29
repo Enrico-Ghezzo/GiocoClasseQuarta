@@ -82,6 +82,14 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    @Spawns("ring")
+    public Entity newRing(SpawnData data) {
+        return new EntityBuilder()
+                .bbox(BoundingShape.circle((int)data.get("width")/2))
+                .type(PokemonTypes.RINGGROUDON)
+                .build();
+    }
+
     @Spawns("spawnPoint")
     public Entity newSpawn(SpawnData data) {
         return new EntityBuilder()
@@ -95,6 +103,14 @@ public class FabbricaEntita implements EntityFactory {
         return new EntityBuilder()
                 .at(data.getX(), data.getY())
                 .type(PokemonTypes.SPAWNSAFFI)
+                .build();
+    }
+
+    @Spawns("spawnGroudon")
+    public Entity newSpawnGroudon(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNGROUDON)
                 .build();
     }
 }

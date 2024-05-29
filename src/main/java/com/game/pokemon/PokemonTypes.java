@@ -2,6 +2,7 @@ package com.game.pokemon;
 
 public enum PokemonTypes {
     PLAYER, SPAWNPOINT,
+    RINGGROUDON,
     GROUDON, SPAWNGROUDON,
     OGGETTOSOLIDO,
     SAFFI, SPAWNSAFFI,

@@ -58,16 +58,19 @@ public class PokemonApplication extends GameApplication {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
                 actGroudon = true;
+                groudon.getComponent(GroudonControl.class).isColliding(true);
             }
 
             @Override
             protected void onCollision(Entity a, Entity b) {
                 actGroudon = true;
+                groudon.getComponent(GroudonControl.class).isColliding(true);
             }
 
             @Override
             protected void onCollisionEnd(Entity a, Entity b) {
                 actGroudon = false;
+                groudon.getComponent(GroudonControl.class).isColliding(false);
             }
         });
     }
@@ -161,11 +164,12 @@ public class PokemonApplication extends GameApplication {
 
         double[] coordinatePlayer = trovaSpawn(map, "SPAWNPOINT");
         double[] coordinateSaffi = trovaSpawn(map, "SPAWNSAFFI");
+        double[] coordinateGroudon = trovaSpawn(map, "SPAWNGROUDON");
 
         //inserisce il player
         player = getGameWorld().spawn("player", coordinatePlayer[0], coordinatePlayer[1]);
         saffi = getGameWorld().spawn("saffi", coordinateSaffi[0], coordinateSaffi[1]);
-        groudon = getGameWorld().spawn("groudon", 500, 500);
+        groudon = getGameWorld().spawn("groudon", coordinateGroudon[0], coordinateGroudon[1]);
 
         //sistema la camera
         getGameScene().getViewport().bindToEntity(player, getAppWidth()/2 - player.getWidth()/2, getAppHeight()/2 - player.getHeight()/2);
