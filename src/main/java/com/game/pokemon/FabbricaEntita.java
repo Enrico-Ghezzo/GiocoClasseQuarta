@@ -35,6 +35,25 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    @Spawns("groudon")
+    public Entity newGroudon(SpawnData data) {
+        var physics = new PhysicsComponent();
+        physics.setFixtureDef(new FixtureDef().density(0).friction(1.0f).restitution(0.05f));
+        physics.setBodyType(BodyType.KINEMATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.GROUDON)
+                .bbox(new HitBox(BoundingShape.box(40*1.5,53*1.5)))
+                .anchorFromCenter()
+                .with(physics) //eliminare per togliere fisica
+                .with(new CollidableComponent(true))
+                .with(new GroudonControl())
+                .with(new BarraVitaComponent())
+                .with(new VitaComponent(100))
+                .build();
+    }
+
     @Spawns("saffi")
     public Entity newSaffi(SpawnData data) {
         var physics = new PhysicsComponent();

@@ -1,48 +1,50 @@
 package com.game.pokemon;
 
 import com.almasb.fxgl.dsl.FXGL;
-import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
+import com.almasb.fxgl.entity.component.Component;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
 
-public class PlayerControl extends Component {
+public class GroudonControl extends Component {
     private PhysicsComponent physics;
     private AnimationChannel animIdle, animRunSide, animRunUp, animRunDown, animAttackDown, animAttackSide, animAttackUp;
     private AnimatedTexture texture;
     private double playerScale = 1.5f;
-    private float velocity = 150;
+    private float velocity = 100;
     private int danno = 10;
     private String direzione = "giu";
-    private boolean isStopped = true;
 
-    public PlayerControl() {
+    public GroudonControl() {
         //CARICA LE ANIMAZIONI IN MEMORIA
         ArrayList runFrames = new ArrayList<>();
-        runFrames.add(FXGL.image("matteolongobardi.png", 14*playerScale, 21*playerScale));
-        animIdle = new AnimationChannel(runFrames, Duration.seconds(2));
+        for (int i = 1; i <= 2; i++) {
+            runFrames.add(FXGL.image("groudon/idle" + i + ".png", 40*playerScale, 53*playerScale));
+        }
+        animIdle = new AnimationChannel(runFrames, Duration.seconds(0.5));
         texture = new AnimatedTexture(animIdle);
         runFrames.clear();
-        for (int i = 1; i <= 6; i++) {
-            runFrames.add(FXGL.image("corsalaterale/corsalaterale" + i + ".png", 14*playerScale, 21*playerScale));
+        for (int i = 1; i <= 3; i++) {
+            runFrames.add(FXGL.image("groudon/groudonavanti" + i + ".png", 40*playerScale, 53*playerScale));
         }
         animRunSide = new AnimationChannel(runFrames, Duration.seconds(1));
 
         runFrames.clear();
-        for (int i = 1; i <= 6; i++) {
-            runFrames.add(FXGL.image("corsasu/corsasu" + i + ".png", 14*playerScale, 21*playerScale));
+        for (int i = 1; i <= 3; i++) {
+            runFrames.add(FXGL.image("groudon/groudonlaterale" + i + ".png", 40*playerScale, 53*playerScale));
         }
         animRunUp = new AnimationChannel(runFrames, Duration.seconds(1));
 
         runFrames.clear();
-        for (int i = 1; i <= 6; i++) {
-            runFrames.add(FXGL.image("corsagiu/corsagiu" + i + ".png", 14*playerScale, 21*playerScale));
+        for (int i = 1; i <= 3; i++) {
+            runFrames.add(FXGL.image("groudon/groudonlaterale" + i + ".png", 40*playerScale, 53*playerScale));
         }
         animRunDown = new AnimationChannel(runFrames, Duration.seconds(1));
 
+        /*
         //ANIMAZIONI ATTACCO
         runFrames.clear();
         for (int i = 1; i <= 4; i++) {
@@ -62,6 +64,8 @@ public class PlayerControl extends Component {
         }
         animAttackUp = new AnimationChannel(runFrames, Duration.seconds(0.4));
 
+         */
+
     }
 
     @Override
@@ -74,35 +78,34 @@ public class PlayerControl extends Component {
         //ANIMAZIONI IN BASE AL MOVIMENTO DEL PERSONAGGIO
         if (texture.getAnimationChannel() != animAttackDown || texture.getAnimationChannel() != animAttackSide || texture.getAnimationChannel() != animAttackUp) {
             if(physics.getVelocityX() > 0 && physics.getVelocityY() == 0){  //se va a destra
-                if(!(texture.getAnimationChannel() == animRunSide) || isStopped){
+                if(!(texture.getAnimationChannel() == animRunSide)){
                     texture.loopAnimationChannel(animRunSide);
-                    isStopped = false;
                 }
                 texture.setScaleX(-1);
                 direzione = "destra";
             }
             if(physics.getVelocityX() < 0 && physics.getVelocityY() == 0){  //se va a sinistra
-                if(!(texture.getAnimationChannel() == animRunSide) || isStopped){
+                if(!(texture.getAnimationChannel() == animRunSide)){
                     texture.loopAnimationChannel(animRunSide);
-                    isStopped = false;
                 }
                 texture.setScaleX(1);
                 direzione = "sinistra";
             }
             if(physics.getVelocityY() < 0 && physics.getVelocityX() == 0){  //se va su
-                if(!(texture.getAnimationChannel() == animRunUp) || isStopped){
+                if(!(texture.getAnimationChannel() == animRunUp)){
                     texture.loopAnimationChannel(animRunUp);
-                    isStopped = false;
                 }
                 direzione = "su";
             }
             if(physics.getVelocityY() > 0 && physics.getVelocityX() == 0){  //se va giu
-                if(!(texture.getAnimationChannel() == animRunDown) || isStopped){
+                if(!(texture.getAnimationChannel() == animRunDown)){
                     texture.loopAnimationChannel(animRunDown);
-                    isStopped = false;
                 }
                 direzione = "giu";
             }
+        }
+        else if (texture.getAnimationChannel() != animIdle){
+            texture.loopAnimationChannel(animIdle);
         }
 
     }
@@ -127,8 +130,7 @@ public class PlayerControl extends Component {
     public void ferma(){
         physics.setVelocityX(0);
         physics.setVelocityY(0);
-        texture.stop();
-        isStopped = true;
+        texture.loopAnimationChannel(animIdle);
     }
 
     public int attacca(){
@@ -137,38 +139,33 @@ public class PlayerControl extends Component {
                 texture.playAnimationChannel(animAttackSide);
                 texture.setScaleX(1);
                 texture.setOnCycleFinished(() -> {
-                    texture.loopAnimationChannel(animRunSide);
+                    texture.loopAnimationChannel(animIdle);
                     texture.setScaleX(-1);
-                    texture.stop();
                 });
             }
             else if(direzione == "sinistra"){
                 texture.playAnimationChannel(animAttackSide);
                 texture.setScaleX(-1);
                 texture.setOnCycleFinished(() -> {
-                    texture.loopAnimationChannel(animRunSide);
+                    texture.loopAnimationChannel(animIdle);
                     texture.setScaleX(1);
-                    texture.stop();
                 });
             }
             else if(direzione == "su"){
                 texture.playAnimationChannel(animAttackUp);
                 texture.setScaleX(1);
                 texture.setOnCycleFinished(() -> {
-                    texture.loopAnimationChannel(animRunUp);
-                    texture.stop();
+                    texture.loopAnimationChannel(animIdle);
                 });
             }
             else if(direzione == "giu"){
                 texture.playAnimationChannel(animAttackDown);
                 texture.setOnCycleFinished(() -> {
-                    texture.loopAnimationChannel(animRunDown);
-                    texture.stop();
+                    texture.loopAnimationChannel(animIdle);
                 });
             }
             return danno;
         }
         return 0;
     }
-
 }

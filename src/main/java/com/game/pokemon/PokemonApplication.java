@@ -15,9 +15,9 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class PokemonApplication extends GameApplication {
 
-    private Entity player, saffi;  //giocatore
+    private Entity player, saffi, groudon;  //giocatore
     private Music gameMusic;    //musica del gioco
-    private Boolean actSaffi = false;
+    private Boolean actSaffi = false, actGroudon = false;
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
@@ -51,6 +51,23 @@ public class PokemonApplication extends GameApplication {
             @Override
             protected void onCollisionEnd(Entity a, Entity b) {
                 actSaffi = false;
+            }
+        });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PLAYER, PokemonTypes.GROUDON){
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actGroudon = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actGroudon = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actGroudon = false;
             }
         });
     }
@@ -110,7 +127,12 @@ public class PokemonApplication extends GameApplication {
             @Override
             protected void onActionBegin() {
                 if(actSaffi){
-                    getDialogService().showMessageBox("SAFFI: BUONGIORNO SIGNORI!!!!", () -> {});
+                    if(saffi.getComponent(VitaComponent.class).getVita()<100){
+                        getDialogService().showMessageBox("SAFFI: BASTA CON QUESTI ATTEGGIAMENTI BAMBINESCHI", () -> {});
+                    }
+                    else{
+                        getDialogService().showMessageBox("SAFFI: BUONGIORNO SIGNORI!!!!", () -> {});
+                    }
                 }
             }
         }, KeyCode.E);
@@ -120,6 +142,9 @@ public class PokemonApplication extends GameApplication {
             protected void onActionBegin() {
                 if(actSaffi){
                     saffi.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
+                }
+                if(actGroudon){
+                    groudon.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
                 }
             }
         }, KeyCode.F);
@@ -140,6 +165,7 @@ public class PokemonApplication extends GameApplication {
         //inserisce il player
         player = getGameWorld().spawn("player", coordinatePlayer[0], coordinatePlayer[1]);
         saffi = getGameWorld().spawn("saffi", coordinateSaffi[0], coordinateSaffi[1]);
+        groudon = getGameWorld().spawn("groudon", 500, 500);
 
         //sistema la camera
         getGameScene().getViewport().bindToEntity(player, getAppWidth()/2 - player.getWidth()/2, getAppHeight()/2 - player.getHeight()/2);
