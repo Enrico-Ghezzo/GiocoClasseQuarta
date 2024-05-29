@@ -1,14 +1,17 @@
 package com.game.pokemon;
 
 import com.almasb.fxgl.entity.component.Component;
+import com.almasb.fxgl.texture.AnimatedTexture;
+import com.almasb.fxgl.texture.AnimationChannel;
 
 public class VitaComponent extends Component {
     private int vita;
+    private boolean isDead = false;
 
     @Override
     public void onUpdate(double tpf) {
         if(vita<=0){
-            muori();
+            isDead = true;
         }
     }
 
@@ -23,7 +26,14 @@ public class VitaComponent extends Component {
     public void prendiDanno(int danno){
         vita = vita - danno;
     }
-    public void muori(){
-        entity.removeFromWorld();
+    public void muori(AnimatedTexture t, AnimationChannel a){
+        t.playAnimationChannel(a);
+        t.setOnCycleFinished(() -> {
+            entity.removeFromWorld();
+        });
+    }
+
+    public boolean isDead() {
+        return isDead;
     }
 }
