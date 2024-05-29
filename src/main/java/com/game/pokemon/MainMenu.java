@@ -5,6 +5,7 @@ import com.almasb.fxgl.app.scene.MenuType;
 import com.almasb.fxgl.audio.Music;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.scene.Scene;
+import javafx.scene.layout.Background;
 import org.jetbrains.annotations.NotNull;
 
 public class MainMenu extends FXGLDefaultMenu {

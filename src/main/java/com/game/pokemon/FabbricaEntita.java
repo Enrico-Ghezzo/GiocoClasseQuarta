@@ -47,6 +47,8 @@ public class FabbricaEntita implements EntityFactory {
                 .view(FXGL.texture("safficorsagiu1.png", 14*1.5, 21*1.5))
                 .with(physics)
                 .with(new CollidableComponent(true))
+                .with(new VitaComponent(100))
+                .with(new BarraVitaComponent())
                 .build();
     }
 

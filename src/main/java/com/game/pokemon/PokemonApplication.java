@@ -5,20 +5,11 @@ import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.audio.Music;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.Entity;
-import com.almasb.fxgl.entity.SpawnData;
-import com.almasb.fxgl.input.InputSequence;
+import com.almasb.fxgl.entity.level.Level;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
-import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.PhysicsWorld;
-import com.almasb.fxgl.texture.AnimatedTexture;
-import com.almasb.fxgl.texture.AnimationChannel;
-import javafx.event.EventType;
 import javafx.scene.input.KeyCode;
-import javafx.util.Duration;
-
-import java.util.ArrayList;
-import java.util.Map;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -26,7 +17,7 @@ public class PokemonApplication extends GameApplication {
 
     private Entity player, saffi;  //giocatore
     private Music gameMusic;    //musica del gioco
-    private Boolean parlaSaffi = false;
+    private Boolean actSaffi = false;
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
@@ -49,17 +40,17 @@ public class PokemonApplication extends GameApplication {
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PLAYER, PokemonTypes.SAFFI){
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
-                parlaSaffi = true;
+                actSaffi = true;
             }
 
             @Override
             protected void onCollision(Entity a, Entity b) {
-                parlaSaffi = true;
+                actSaffi = true;
             }
 
             @Override
             protected void onCollisionEnd(Entity a, Entity b) {
-                parlaSaffi = false;
+                actSaffi = false;
             }
         });
     }
@@ -118,7 +109,7 @@ public class PokemonApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Talk") {
             @Override
             protected void onActionBegin() {
-                if(parlaSaffi){
+                if(actSaffi){
                     getDialogService().showMessageBox("SAFFI: BUONGIORNO SIGNORI!!!!", () -> {});
                 }
             }
@@ -127,8 +118,9 @@ public class PokemonApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Attack") {
             @Override
             protected void onActionBegin() {
-                player.getComponent(PlayerControl.class).attacca();
-                player.getComponent(VitaComponent.class).prendiDanno(10);
+                if(actSaffi){
+                    saffi.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
+                }
             }
         }, KeyCode.F);
     }
@@ -142,39 +134,12 @@ public class PokemonApplication extends GameApplication {
         //inserisce la mappa con tutte le sue collisioni
         var map = FXGL.setLevelFromMap("livello.tmx");
 
-        double spawnPlayerX = 0, spawnPlayerY = 0;
-        int i = 0;
-        while(true){
-            try{
-                if(map.getEntities().get(i).getType().toString() == "SPAWNPOINT"){
-                    spawnPlayerX = map.getEntities().get(i).getX();
-                    spawnPlayerY = map.getEntities().get(i).getY();
-                }
-            }
-            catch(Exception e){
-                break;
-            }
-            i++;
-        }
-
-        double spawnSaffiX = 0, spawnSaffiY = 0;
-        i = 0;
-        while(true){
-            try{
-                if(map.getEntities().get(i).getType().toString() == "SPAWNSAFFI"){
-                    spawnSaffiX = map.getEntities().get(i).getX();
-                    spawnSaffiY = map.getEntities().get(i).getY();
-                }
-            }
-            catch(Exception e){
-                break;
-            }
-            i++;
-        }
+        double[] coordinatePlayer = trovaSpawn(map, "SPAWNPOINT");
+        double[] coordinateSaffi = trovaSpawn(map, "SPAWNSAFFI");
 
         //inserisce il player
-        player = getGameWorld().spawn("player", spawnPlayerX, spawnPlayerY);
-        saffi = getGameWorld().spawn("saffi", spawnSaffiX, spawnSaffiY);
+        player = getGameWorld().spawn("player", coordinatePlayer[0], coordinatePlayer[1]);
+        saffi = getGameWorld().spawn("saffi", coordinateSaffi[0], coordinateSaffi[1]);
 
         //sistema la camera
         getGameScene().getViewport().bindToEntity(player, getAppWidth()/2 - player.getWidth()/2, getAppHeight()/2 - player.getHeight()/2);
@@ -189,6 +154,25 @@ public class PokemonApplication extends GameApplication {
     @Override
     protected void onPreInit() {
         FXGL.getAudioPlayer().stopAllMusic();
+    }
+
+    private double[] trovaSpawn(Level map, String tipo){
+        int i = 0;
+        double[] coordinate = new double[2];
+        while(true){
+            try{
+                if(map.getEntities().get(i).getType().toString() == tipo){
+                    coordinate[0] = map.getEntities().get(i).getX();
+                    coordinate[1] = map.getEntities().get(i).getY();
+                    return coordinate;
+                }
+            }
+            catch(Exception e){
+                break;
+            }
+            i++;
+        }
+        return null;
     }
 
     //LANCIA IL GIOCO

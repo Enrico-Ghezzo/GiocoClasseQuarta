@@ -18,12 +18,13 @@ public class BarraVitaComponent extends Component {
 
         progressBar.setFill(Color.rgb(255, 0, 0));
         progressBar.setWidth(30);
-        progressBar.setHeight(10);
+        progressBar.setHeight(9);
     }
 
     @Override
     public void onAdded() {
         entity.getViewComponent().addChild(progressBar);
+        progressBar.setWidth(entity.getWidth());
         progressBar.setTranslateY(6.5 - 15);
     }
 

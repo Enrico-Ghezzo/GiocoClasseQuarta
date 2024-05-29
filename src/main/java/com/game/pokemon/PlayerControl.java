@@ -15,6 +15,7 @@ public class PlayerControl extends Component {
     private AnimatedTexture texture;
     private double playerScale = 1.5f;
     private float velocity = 100;
+    private int danno = 10;
     private String direzione = "giu";
     private boolean isStopped = true;
 
@@ -130,7 +131,7 @@ public class PlayerControl extends Component {
         isStopped = true;
     }
 
-    public void attacca(){
+    public int attacca(){
         if(texture.getAnimationChannel() != animAttackDown || texture.getAnimationChannel() != animAttackSide || texture.getAnimationChannel() != animAttackUp){
             if(direzione == "destra"){
                 texture.playAnimationChannel(animAttackSide);
@@ -163,9 +164,9 @@ public class PlayerControl extends Component {
                     direzione = "giu";
                 });
             }
-
+            return danno;
         }
-
+        return 0;
     }
 
 }
