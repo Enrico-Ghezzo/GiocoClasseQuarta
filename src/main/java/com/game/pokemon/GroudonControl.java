@@ -1,12 +1,10 @@
 package com.game.pokemon;
 
 import com.almasb.fxgl.dsl.FXGL;
-import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
 import com.almasb.fxgl.entity.component.Component;
-import javafx.geometry.Rectangle2D;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -17,9 +15,9 @@ public class GroudonControl extends Component {
     private AnimatedTexture texture;
     private double playerScale = 1.5f;
     private float velocity = 50;
-    private int danno = 10;
+    private int danno = 20;
     private String direzione = "giu";
-    private boolean isColliding = false, isAttacking = false;
+    private boolean isColliding = false, isAttacking = false, isDamaging = false;
 
     public GroudonControl() {
         //CARICA LE ANIMAZIONI IN MEMORIA
@@ -53,27 +51,26 @@ public class GroudonControl extends Component {
             runFrames.add(FXGL.image("groudon/morte" + i + ".png", 40*playerScale, 53*playerScale));
         }
         animDeath = new AnimationChannel(runFrames, Duration.seconds(1));
-        /*
+
         //ANIMAZIONI ATTACCO
         runFrames.clear();
-        for (int i = 1; i <= 4; i++) {
-            runFrames.add(FXGL.image("canna/cannagiu" + i + ".png", 14*playerScale, 21*playerScale));
+        for (int i = 1; i <= 3; i++) {
+            runFrames.add(FXGL.image("groudon/attaccogiu" + i + ".png", 40*playerScale, 53*playerScale));
         }
-        animAttackDown = new AnimationChannel(runFrames, Duration.seconds(0.4));
+        animAttackDown = new AnimationChannel(runFrames, Duration.seconds(1.5));
 
         runFrames.clear();
-        for (int i = 1; i <= 4; i++) {
-            runFrames.add(FXGL.image("canna/cannalaterale" + i + ".png", 14*playerScale, 21*playerScale));
+        for (int i = 1; i <= 3; i++) {
+            runFrames.add(FXGL.image("groudon/attaccolaterale" + i + ".png", 40*playerScale, 53*playerScale));
         }
-        animAttackSide = new AnimationChannel(runFrames, Duration.seconds(0.4));
+        animAttackSide = new AnimationChannel(runFrames, Duration.seconds(1.5));
 
         runFrames.clear();
-        for (int i = 1; i <= 4; i++) {
-            runFrames.add(FXGL.image("canna/cannasu" + i + ".png", 14*playerScale, 21*playerScale));
+        for (int i = 1; i <= 3; i++) {
+            runFrames.add(FXGL.image("groudon/attaccosu" + i + ".png", 40*playerScale, 53*playerScale));
         }
-        animAttackUp = new AnimationChannel(runFrames, Duration.seconds(0.4));
+        animAttackUp = new AnimationChannel(runFrames, Duration.seconds(1.5));
 
-         */
 
     }
 
@@ -155,45 +152,64 @@ public class GroudonControl extends Component {
 
     }
 
-    public void isColliding(boolean b){
+    public void setIsColliding(boolean b){
         isColliding = b;
     }
+    public boolean getIsColliding(){
+        return isColliding;
+    }
 
-    public int attacca(){
-        if(texture.getAnimationChannel() != animAttackDown || texture.getAnimationChannel() != animAttackSide || texture.getAnimationChannel() != animAttackUp){
+    public void setIsDamaging(boolean b){
+        this.isDamaging = b;
+    }
+    public boolean getIsDamaging() {
+        return isDamaging;
+    }
+
+    public int getDanno(){
+        return danno;
+    }
+
+    public void attacca(Runnable damageCallback){
+        if(isColliding && !isAttacking){
             isAttacking = true;
             if(direzione == "destra"){
+                texture.playAnimationChannel(animAttackSide);
+                texture.setScaleX(-1);
+                texture.setOnCycleFinished(() -> {
+                    texture.loopAnimationChannel(animIdle);
+                    texture.setScaleX(1);
+                    isAttacking = false;
+                    damageCallback.run();
+                });
+            }
+            else if(direzione == "sinistra"){
                 texture.playAnimationChannel(animAttackSide);
                 texture.setScaleX(1);
                 texture.setOnCycleFinished(() -> {
                     texture.loopAnimationChannel(animIdle);
                     texture.setScaleX(-1);
                     isAttacking = false;
-                });
-            }
-            else if(direzione == "sinistra"){
-                texture.playAnimationChannel(animAttackSide);
-                texture.setScaleX(-1);
-                texture.setOnCycleFinished(() -> {
-                    texture.loopAnimationChannel(animIdle);
-                    texture.setScaleX(1);
+                    damageCallback.run();
                 });
             }
             else if(direzione == "su"){
                 texture.playAnimationChannel(animAttackUp);
-                texture.setScaleX(1);
                 texture.setOnCycleFinished(() -> {
                     texture.loopAnimationChannel(animIdle);
+                    isAttacking = false;
+                    damageCallback.run();
                 });
             }
             else if(direzione == "giu"){
                 texture.playAnimationChannel(animAttackDown);
                 texture.setOnCycleFinished(() -> {
                     texture.loopAnimationChannel(animIdle);
+                    isAttacking = false;
+                    damageCallback.run();
                 });
             }
-            return danno;
         }
-        return 0;
     }
+
 }

@@ -8,7 +8,6 @@ import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.level.Level;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
-import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsWorld;
 import javafx.scene.input.KeyCode;
 
@@ -16,9 +15,9 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class PokemonApplication extends GameApplication {
 
-    private Entity player, saffi, mancino, groudon;  //giocatore
+    private Entity player, saffi, mancino, biral, groudon;  //giocatore
     private Music gameMusic;    //musica del gioco
-    private Boolean actSaffi = false, actMancino = false, actGroudon = false;
+    private Boolean actSaffi = false, actMancino = false, actBiral = false, actGroudon = false;
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
@@ -72,23 +71,45 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.BIRAL, PokemonTypes.PLAYER) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actBiral = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actBiral = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actBiral = false;
+            }
+        });
+
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.GROUDON, PokemonTypes.PLAYER){
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
                 actGroudon = true;
-                groudon.getComponent(GroudonControl.class).isColliding(true);
+                groudon.getComponent(GroudonControl.class).setIsColliding(true);
+                groudon.getComponent(GroudonControl.class).attacca(() -> {
+                    if(groudon.getComponent(GroudonControl.class).getIsColliding()){
+                        player.getComponent(VitaComponent.class).prendiDanno(groudon.getComponent(GroudonControl.class).getDanno());
+                    }
+                });
             }
 
             @Override
             protected void onCollision(Entity a, Entity b) {
                 actGroudon = true;
-                groudon.getComponent(GroudonControl.class).isColliding(true);
+                groudon.getComponent(GroudonControl.class).setIsColliding(true);
             }
 
             @Override
             protected void onCollisionEnd(Entity a, Entity b) {
                 actGroudon = false;
-                groudon.getComponent(GroudonControl.class).isColliding(false);
+                groudon.getComponent(GroudonControl.class).setIsColliding(false);
             }
         });
     }
@@ -151,7 +172,10 @@ public class PokemonApplication extends GameApplication {
                     getDialogService().showMessageBox("SAFFI: BUONGIORNO SIGNORI!!!!", () -> {});
                 }
                 if(actMancino){
-                    getDialogService().showMessageBox("MANCINO: STAI ENTRANDO NELLA SEZIONE CRITICA", () -> {});
+                    getDialogService().showMessageBox("MANCINO: BERNARDI VAI A VEDERE SE C'E' PESENTI", () -> {});
+                }
+                if(actBiral){
+                    getDialogService().showMessageBox("BIRAL: POPA...  ESSERE INUTILE...", () -> {});
                 }
             }
         }, KeyCode.E);
@@ -178,6 +202,7 @@ public class PokemonApplication extends GameApplication {
         double[] coordinatePlayer = trovaSpawn(map, "SPAWNPOINT");
         double[] coordinateSaffi = trovaSpawn(map, "SPAWNSAFFI");
         double[] coordinateMancino = trovaSpawn(map, "SPAWNMANCINO");
+        double[] coordinateBiral = trovaSpawn(map, "SPAWNBIRAL");
         double[] coordinateGroudon = trovaSpawn(map, "SPAWNGROUDON");
 
 
@@ -185,6 +210,7 @@ public class PokemonApplication extends GameApplication {
         player = getGameWorld().spawn("player", coordinatePlayer[0], coordinatePlayer[1]);
         saffi = getGameWorld().spawn("saffi", coordinateSaffi[0], coordinateSaffi[1]);
         mancino = getGameWorld().spawn("mancino", coordinateMancino[0], coordinateMancino[1]);
+        biral = getGameWorld().spawn("biral", coordinateBiral[0], coordinateBiral[1]);
         groudon = getGameWorld().spawn("groudon", coordinateGroudon[0], coordinateGroudon[1]);
 
         //sistema la camera
@@ -219,6 +245,14 @@ public class PokemonApplication extends GameApplication {
             i++;
         }
         return null;
+    }
+
+    @Override
+    protected void onUpdate(double tpf) {
+        if(player.getComponent(VitaComponent.class).getVita()<=0){
+            FXGL.getNotificationService().pushNotification("SEI MORTO");
+           getGameController().gotoMainMenu();
+        }
     }
 
     //LANCIA IL GIOCO

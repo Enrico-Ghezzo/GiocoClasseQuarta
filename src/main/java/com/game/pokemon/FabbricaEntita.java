@@ -30,8 +30,8 @@ public class FabbricaEntita implements EntityFactory {
                 .with(physics) //eliminare per togliere fisica
                 .with(new CollidableComponent(true))
                 .with(new PlayerControl())
-                .with(new BarraVitaComponent())
                 .with(new VitaComponent(100))
+                .with(new BarraVitaComponent())
                 .build();
     }
 
@@ -49,8 +49,8 @@ public class FabbricaEntita implements EntityFactory {
                 .with(physics) //eliminare per togliere fisica
                 .with(new CollidableComponent(true))
                 .with(new GroudonControl())
+                .with(new VitaComponent(200))
                 .with(new BarraVitaComponent())
-                .with(new VitaComponent(100))
                 .build();
     }
 
@@ -79,6 +79,21 @@ public class FabbricaEntita implements EntityFactory {
                 .type(PokemonTypes.MANCINO)
                 .bbox(new HitBox(BoundingShape.box(16*1.5, 19*1.5)))
                 .view(FXGL.texture("mancino.png", 16*1.5, 19*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    @Spawns("biral")
+    public Entity newBiral(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.BIRAL)
+                .bbox(new HitBox(BoundingShape.box(16*1.5, 20*1.5)))
+                .view(FXGL.texture("biral.png", 16*1.5, 20*1.5))
                 .with(physics)
                 .with(new CollidableComponent(true))
                 .build();
@@ -124,6 +139,14 @@ public class FabbricaEntita implements EntityFactory {
         return new EntityBuilder()
                 .at(data.getX(), data.getY())
                 .type(PokemonTypes.SPAWNMANCINO)
+                .build();
+    }
+
+    @Spawns("spawnBiral")
+    public Entity newSpawnBiral(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNBIRAL)
                 .build();
     }
 

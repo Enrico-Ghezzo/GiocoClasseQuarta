@@ -12,10 +12,6 @@ import java.awt.*;
 public class BarraVitaComponent extends Component {
     private ProgressBar progressBar = new ProgressBar(false);
     public BarraVitaComponent() {
-        progressBar.setMaxValue(100);
-        progressBar.setMinValue(0);
-        progressBar.setCurrentValue(100);
-
         progressBar.setFill(Color.rgb(255, 0, 0));
         progressBar.setWidth(30);
         progressBar.setHeight(9);
@@ -23,6 +19,9 @@ public class BarraVitaComponent extends Component {
 
     @Override
     public void onAdded() {
+        progressBar.setMaxValue(entity.getComponent(VitaComponent.class).getVita());
+        progressBar.setMinValue(0);
+        progressBar.setCurrentValue(100);
         entity.getViewComponent().addChild(progressBar);
         progressBar.setWidth(entity.getWidth());
         progressBar.setTranslateY(6.5 - 15);

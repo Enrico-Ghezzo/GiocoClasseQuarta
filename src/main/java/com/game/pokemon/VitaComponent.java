@@ -27,6 +27,10 @@ public class VitaComponent extends Component {
         vita = vita - danno;
     }
     public void muori(AnimatedTexture t, AnimationChannel a){
+        if(t == null || a == null){
+            entity.removeFromWorld();
+        }
+
         t.playAnimationChannel(a);
         t.setOnCycleFinished(() -> {
             entity.removeFromWorld();
