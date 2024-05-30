@@ -85,13 +85,15 @@ public class GroudonControl extends Component {
     @Override
     public void onUpdate(double tpf) {
         if(entity.getComponent(VitaComponent.class).isDead()){
+            physics.setVelocityX(0);
+            physics.setVelocityY(0);
             if(texture.getAnimationChannel() != animDeath){
                 entity.getComponent(VitaComponent.class).muori(texture, animDeath);
             }
         }
 
         //MOVIMENTO AUTOMATICO DI GROUDON
-        if (FXGL.getGameWorld().getEntitiesByType(PokemonTypes.PLAYER).getFirst().getCenter().distance(FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGGROUDON).getFirst().getCenter()) <= FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGGROUDON).getFirst().getWidth()/2){
+        if (FXGL.getGameWorld().getEntitiesByType(PokemonTypes.PLAYER).getFirst().getCenter().distance(FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGGROUDON).getFirst().getCenter()) <= FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGGROUDON).getFirst().getWidth()/2 && !entity.getComponent(VitaComponent.class).isDead()){
             //ASSE X
             if(FXGL.getGameWorld().getEntitiesByType(PokemonTypes.PLAYER).getFirst().getPosition().getX() >= entity.getCenter().getX() && !isColliding){
                 physics.setVelocityX(velocity);
@@ -100,9 +102,19 @@ public class GroudonControl extends Component {
             } else{
                 physics.setVelocityX(0);
             }
+
+            //ASSE Y
+            if(FXGL.getGameWorld().getEntitiesByType(PokemonTypes.PLAYER).getFirst().getPosition().getY() >= entity.getCenter().getY() && !isColliding){
+                physics.setVelocityY(velocity);
+            } else if (FXGL.getGameWorld().getEntitiesByType(PokemonTypes.PLAYER).getFirst().getPosition().getY() + FXGL.getGameWorld().getEntitiesByType(PokemonTypes.PLAYER).getFirst().getWidth() <= entity.getCenter().getY() && !isColliding) {
+                physics.setVelocityY(-velocity);
+            } else{
+                physics.setVelocityY(0);
+            }
         }
         else{
             physics.setVelocityX(0);
+            physics.setVelocityY(0);
         }
 
         //ANIMAZIONI IN BASE AL MOVIMENTO DEL PERSONAGGIO
@@ -121,13 +133,13 @@ public class GroudonControl extends Component {
                 texture.setScaleX(1);
                 direzione = "sinistra";
             }
-            if (physics.getVelocityY() < 0 && physics.getVelocityX() == 0) {  //se va su
+            if (physics.getVelocityY() < 0) {  //se va su
                 if (!(texture.getAnimationChannel() == animRunUp)) {
                     texture.loopAnimationChannel(animRunUp);
                 }
                 direzione = "su";
             }
-            if (physics.getVelocityY() > 0 && physics.getVelocityX() == 0) {  //se va giu
+            if (physics.getVelocityY() > 0) {  //se va giu
                 if (!(texture.getAnimationChannel() == animRunDown)) {
                     texture.loopAnimationChannel(animRunDown);
                 }

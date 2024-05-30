@@ -130,12 +130,7 @@ public class PokemonApplication extends GameApplication {
             @Override
             protected void onActionBegin() {
                 if(actSaffi){
-                    if(saffi.getComponent(VitaComponent.class).getVita()<100){
-                        getDialogService().showMessageBox("SAFFI: BASTA CON QUESTI ATTEGGIAMENTI BAMBINESCHI", () -> {});
-                    }
-                    else{
-                        getDialogService().showMessageBox("SAFFI: BUONGIORNO SIGNORI!!!!", () -> {});
-                    }
+                    getDialogService().showMessageBox("SAFFI: BUONGIORNO SIGNORI!!!!", () -> {});
                 }
             }
         }, KeyCode.E);
@@ -143,9 +138,6 @@ public class PokemonApplication extends GameApplication {
         FXGL.getInput().addAction(new UserAction("Attack") {
             @Override
             protected void onActionBegin() {
-                if(actSaffi){
-                    saffi.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
-                }
                 if(actGroudon){
                     groudon.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
                 }
