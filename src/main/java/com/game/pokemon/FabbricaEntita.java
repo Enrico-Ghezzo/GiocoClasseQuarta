@@ -119,6 +119,14 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    @Spawns("spawnMancino")
+    public Entity newSpawnMancino(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNMANCINO)
+                .build();
+    }
+
     @Spawns("spawnGroudon")
     public Entity newSpawnGroudon(SpawnData data) {
         return new EntityBuilder()

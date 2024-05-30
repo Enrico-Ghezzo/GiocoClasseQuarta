@@ -38,7 +38,7 @@ public class PokemonApplication extends GameApplication {
     protected void initPhysics() {
         PhysicsWorld physicsWorld = getPhysicsWorld();
         physicsWorld.setGravity(0, 0);
-        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PLAYER, PokemonTypes.SAFFI){
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.SAFFI, PokemonTypes.PLAYER){
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
                 actSaffi = true;
@@ -55,7 +55,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
-        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PLAYER, PokemonTypes.MANCINO) {
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.MANCINO, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
                 actMancino = true;
@@ -72,7 +72,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
-        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PLAYER, PokemonTypes.GROUDON){
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.GROUDON, PokemonTypes.PLAYER){
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
                 actGroudon = true;
