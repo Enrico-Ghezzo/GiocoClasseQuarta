@@ -99,6 +99,128 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    @Spawns("distefano")
+    public Entity newDistefano(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.DISTEFANO)
+                .bbox(new HitBox(BoundingShape.box(16*1.5, 20*1.5)))
+                .view(FXGL.texture("distefano.png", 16*1.5, 20*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    @Spawns("funes")
+    public Entity newFunes(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.FUNES)
+                .bbox(new HitBox(BoundingShape.box(16*1.5, 19*1.5)))
+                .view(FXGL.texture("funes.png", 16*1.5, 19*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    @Spawns("pagan")
+    public Entity newPagan(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.PAGAN)
+                .bbox(new HitBox(BoundingShape.box(14*1.5, 20*1.5)))
+                .view(FXGL.texture("pagan.png", 14*1.5, 20*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    @Spawns("penzo")
+    public Entity newPenzo(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.PENZO)
+                .bbox(new HitBox(BoundingShape.box(16*1.5, 20*1.5)))
+                .view(FXGL.texture("penzo.png", 16*1.5, 20*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    @Spawns("pesenti")
+    public Entity newPesenti(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.PESENTI)
+                .bbox(new HitBox(BoundingShape.box(14*1.5, 20*1.5)))
+                .view(FXGL.texture("pesenti.png", 14*1.5, 20*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    @Spawns("sandi")
+    public Entity newSandi(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SANDI)
+                .bbox(new HitBox(BoundingShape.box(16*1.5, 20*1.5)))
+                .view(FXGL.texture("sandi.png", 16*1.5, 20*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    @Spawns("steve")
+    public Entity newSteve(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.STEVE)
+                .bbox(new HitBox(BoundingShape.box(16*1.5, 20*1.5)))
+                .view(FXGL.texture("steve.png", 16*1.5, 20*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    @Spawns("zuccon")
+    public Entity newZuccon(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.ZUCCON)
+                .bbox(new HitBox(BoundingShape.box(16*1.5, 20*1.5)))
+                .view(FXGL.texture("zuccon.png", 16*1.5, 20*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
+    //####################################################################################
+
     //DEFINISCE LE COLLISIONI DELLA MAPPA
     @Spawns("oggettoSolido")
     public Entity newOggettoSolido(SpawnData data) {    //per il collisionHandler guarda: https://www.youtube.com/watch?v=37wfF9GW1vQ&t=1457s
@@ -110,6 +232,7 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    //###################################################################################
     @Spawns("ring")
     public Entity newRing(SpawnData data) {
         return new EntityBuilder()
@@ -118,6 +241,7 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    //###################################################################################
     @Spawns("spawnPoint")
     public Entity newSpawn(SpawnData data) {
         return new EntityBuilder()
@@ -147,6 +271,70 @@ public class FabbricaEntita implements EntityFactory {
         return new EntityBuilder()
                 .at(data.getX(), data.getY())
                 .type(PokemonTypes.SPAWNBIRAL)
+                .build();
+    }
+
+    @Spawns("spawnDistefano")
+    public Entity newSpawnDistefano(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNDISTEFANO)
+                .build();
+    }
+
+    @Spawns("spawnFunes")
+    public Entity newSpawnFunes(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNFUNES)
+                .build();
+    }
+
+    @Spawns("spawnPagan")
+    public Entity newSpawnPagan(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNPAGAN)
+                .build();
+    }
+
+    @Spawns("spawnPenzo")
+    public Entity newSpawnPenzo(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNPENZO)
+                .build();
+    }
+
+    @Spawns("spawnPesenti")
+    public Entity newSpawnPesenti(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNPESENTI)
+                .build();
+    }
+
+    @Spawns("spawnSandi")
+    public Entity newSpawnSandi(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNSANDI)
+                .build();
+    }
+
+    @Spawns("spawnSteve")
+    public Entity newSpawnSteve(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNSTEVE)
+                .build();
+    }
+
+    @Spawns("spawnZuccon")
+    public Entity newSpawnZuccon(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNZUCCON)
                 .build();
     }
 

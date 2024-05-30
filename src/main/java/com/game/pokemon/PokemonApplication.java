@@ -15,9 +15,20 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class PokemonApplication extends GameApplication {
 
-    private Entity player, saffi, mancino, biral, groudon;  //giocatore
+    private Entity player, saffi, mancino, biral, zuccon, diStefano, funes, sandi, pesenti, penzo, pagan, steve, groudon;  //giocatore
     private Music gameMusic;    //musica del gioco
-    private Boolean actSaffi = false, actMancino = false, actBiral = false, actGroudon = false;
+    private Boolean actSaffi = false,
+            actMancino = false,
+            actBiral = false,
+            actZuccon = false,
+            actDistefano = false,
+            actFunes = false,
+            actSandi = false,
+            actPesenti = false,
+            actPenzo = false,
+            actPagan = false,
+            actSteve = false,
+            actGroudon = false;
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
@@ -88,6 +99,142 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.ZUCCON, PokemonTypes.PLAYER) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actZuccon = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actZuccon = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actZuccon = false;
+            }
+        });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.DISTEFANO, PokemonTypes.PLAYER) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actDistefano = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actDistefano = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actDistefano = false;
+            }
+        });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.FUNES, PokemonTypes.PLAYER) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actFunes = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actFunes = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actFunes = false;
+            }
+        });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.SANDI, PokemonTypes.PLAYER) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actSandi = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actSandi = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actSandi = false;
+            }
+        });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PESENTI, PokemonTypes.PLAYER) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actPesenti = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actPesenti = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actPesenti = false;
+            }
+        });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PENZO, PokemonTypes.PLAYER) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actPenzo = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actPenzo = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actPenzo = false;
+            }
+        });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PAGAN, PokemonTypes.PLAYER) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actPagan = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actPagan = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actPagan = false;
+            }
+        });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.STEVE, PokemonTypes.PLAYER) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actSteve = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actSteve = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actSteve = false;
+            }
+        });
+
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.GROUDON, PokemonTypes.PLAYER){
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -113,7 +260,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
     }
-
+//############################################################################################################
     //INIZIALIZZA L'INPUT DEL PLAYER
     @Override
     protected void initInput() {
@@ -177,6 +324,30 @@ public class PokemonApplication extends GameApplication {
                 if(actBiral){
                     getDialogService().showMessageBox("BIRAL: POPA...  ESSERE INUTILE...", () -> {});
                 }
+                if(actZuccon){
+                    getDialogService().showMessageBox("ZUCCON: *FRASE DA DECIDERE*", () -> {});
+                }
+                if(actDistefano){
+                    getDialogService().showMessageBox("DI STEFANO: HAI FATTO GLI ESERCIZI?", () -> {});
+                }
+                if(actFunes){
+                    getDialogService().showMessageBox("FUNES: APRITE CISCO PACKET TRACER", () -> {});
+                }
+                if(actSandi){
+                    getDialogService().showMessageBox("SANDI: COME SCUSA ?!?!", () -> {});
+                }
+                if(actPesenti){
+                    getDialogService().showMessageBox("PESENTI: NON HO ANCORA CORRETTO LE VERIFICHE", () -> {});
+                }
+                if(actPenzo){
+                    getDialogService().showMessageBox("PENZO: HAI GIUSTIFICATO LE ASSENZE?", () -> {});
+                }
+                if(actPagan){
+                    getDialogService().showMessageBox("PAGAN: HAI GIA' FATTO IL RISCALDAMENTO?", () -> {});
+                }
+                if(actSteve){
+                    getDialogService().showMessageBox("STEVE: VUOI GIOCARE A LOL?", () -> {});
+                }
             }
         }, KeyCode.E);
 
@@ -203,6 +374,14 @@ public class PokemonApplication extends GameApplication {
         double[] coordinateSaffi = trovaSpawn(map, "SPAWNSAFFI");
         double[] coordinateMancino = trovaSpawn(map, "SPAWNMANCINO");
         double[] coordinateBiral = trovaSpawn(map, "SPAWNBIRAL");
+        double[] coordinateZuccon = trovaSpawn(map, "SPAWNZUCCON");
+        double[] coordinateDistefano = trovaSpawn(map, "SPAWNDISTEFANO");
+        double[] coordinateFunes = trovaSpawn(map, "SPAWNFUNES");
+        double[] coordinateSandi = trovaSpawn(map, "SPAWNSANDI");
+        double[] coordinatePesenti = trovaSpawn(map, "SPAWNPESENTI");
+        double[] coordinatePenzo = trovaSpawn(map, "SPAWNPENZO");
+        double[] coordinatePagan = trovaSpawn(map, "SPAWNPAGAN");
+        double[] coordinateSteve = trovaSpawn(map, "SPAWNSTEVE");
         double[] coordinateGroudon = trovaSpawn(map, "SPAWNGROUDON");
 
 
@@ -211,6 +390,14 @@ public class PokemonApplication extends GameApplication {
         saffi = getGameWorld().spawn("saffi", coordinateSaffi[0], coordinateSaffi[1]);
         mancino = getGameWorld().spawn("mancino", coordinateMancino[0], coordinateMancino[1]);
         biral = getGameWorld().spawn("biral", coordinateBiral[0], coordinateBiral[1]);
+        zuccon = getGameWorld().spawn("zuccon", coordinateZuccon[0], coordinateZuccon[1]);
+        diStefano = getGameWorld().spawn("distefano", coordinateDistefano[0], coordinateDistefano[1]);
+        funes = getGameWorld().spawn("funes", coordinateFunes[0], coordinateFunes[1]);
+        sandi = getGameWorld().spawn("sandi", coordinateSandi[0], coordinateSandi[1]);
+        pesenti = getGameWorld().spawn("pesenti", coordinatePesenti[0], coordinatePesenti[1]);
+        penzo = getGameWorld().spawn("penzo", coordinatePenzo[0], coordinatePenzo[1]);
+        pagan = getGameWorld().spawn("pagan", coordinatePagan[0], coordinatePagan[1]);
+        steve = getGameWorld().spawn("steve", coordinateSteve[0], coordinateSteve[1]);
         groudon = getGameWorld().spawn("groudon", coordinateGroudon[0], coordinateGroudon[1]);
 
         //sistema la camera

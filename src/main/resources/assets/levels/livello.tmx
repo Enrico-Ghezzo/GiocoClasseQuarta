@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="left-down" width="250" height="250" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="11" nextobjectid="233">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="left-down" width="250" height="250" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="11" nextobjectid="244">
  <tileset firstgid="1" name="Terrain" tilewidth="16" tileheight="16" spacing="1" tilecount="336" columns="21">
   <image source="Terrain.png" width="356" height="271"/>
  </tileset>
- <objectgroup id="10" name="collsioni " class="oggettoSolido2">
-  <object id="22" type="spawnPoint" x="2545.5" y="575.5">
+ <objectgroup id="10" name="collsioni ">
+  <object id="22" type="spawnPoint" x="2543" y="569">
    <point/>
   </object>
   <object id="24" type="oggettoSolido" x="1151.09" y="467.091" width="65.8182" height="78"/>
@@ -189,6 +189,30 @@
    <point/>
   </object>
   <object id="232" type="spawnBiral" x="1627" y="1063.33">
+   <point/>
+  </object>
+  <object id="233" type="spawnZuccon" x="1223.33" y="516">
+   <point/>
+  </object>
+  <object id="237" type="spawnDistefano" x="2848" y="2040">
+   <point/>
+  </object>
+  <object id="238" type="spawnFunes" x="3184.33" y="2202.67">
+   <point/>
+  </object>
+  <object id="239" type="spawnSandi" x="3055" y="521">
+   <point/>
+  </object>
+  <object id="240" type="spawnPesenti" x="2400" y="3040">
+   <point/>
+  </object>
+  <object id="241" type="spawnPenzo" x="1652" y="2459">
+   <point/>
+  </object>
+  <object id="242" type="spawnPagan" x="776.5" y="2447">
+   <point/>
+  </object>
+  <object id="243" type="spawnSteve" x="782" y="3035.33">
    <point/>
   </object>
  </objectgroup>

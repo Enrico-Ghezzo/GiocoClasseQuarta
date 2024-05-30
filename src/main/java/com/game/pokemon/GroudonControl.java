@@ -9,6 +9,9 @@ import javafx.util.Duration;
 
 import java.util.ArrayList;
 
+import static com.almasb.fxgl.dsl.FXGL.getDialogService;
+import static com.almasb.fxgl.dsl.FXGL.getNotificationService;
+
 public class GroudonControl extends Component {
     private PhysicsComponent physics;
     private AnimationChannel animIdle, animRunSide, animRunUp, animRunDown, animAttackDown, animAttackSide, animAttackUp, animDeath;
@@ -85,6 +88,7 @@ public class GroudonControl extends Component {
             physics.setVelocityX(0);
             physics.setVelocityY(0);
             if(texture.getAnimationChannel() != animDeath){
+                getNotificationService().pushNotification("HAI UCCISO GROUDON");
                 entity.getComponent(VitaComponent.class).muori(texture, animDeath);
             }
         }
