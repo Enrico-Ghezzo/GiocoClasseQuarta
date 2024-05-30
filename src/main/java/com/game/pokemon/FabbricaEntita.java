@@ -69,6 +69,21 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    @Spawns("mancino")
+    public Entity newMancino(SpawnData data){
+        var physics = new PhysicsComponent();
+        physics.setBodyType(BodyType.STATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.MANCINO)
+                .bbox(new HitBox(BoundingShape.box(16*1.5, 19*1.5)))
+                .view(FXGL.texture("mancino.png", 16*1.5, 19*1.5))
+                .with(physics)
+                .with(new CollidableComponent(true))
+                .build();
+    }
+
     //DEFINISCE LE COLLISIONI DELLA MAPPA
     @Spawns("oggettoSolido")
     public Entity newOggettoSolido(SpawnData data) {    //per il collisionHandler guarda: https://www.youtube.com/watch?v=37wfF9GW1vQ&t=1457s

@@ -8,6 +8,7 @@ import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.level.Level;
 import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
+import com.almasb.fxgl.physics.HitBox;
 import com.almasb.fxgl.physics.PhysicsWorld;
 import javafx.scene.input.KeyCode;
 
@@ -15,9 +16,9 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class PokemonApplication extends GameApplication {
 
-    private Entity player, saffi, groudon;  //giocatore
+    private Entity player, saffi, mancino, groudon;  //giocatore
     private Music gameMusic;    //musica del gioco
-    private Boolean actSaffi = false, actGroudon = false;
+    private Boolean actSaffi = false, actMancino = false, actGroudon = false;
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
@@ -51,6 +52,23 @@ public class PokemonApplication extends GameApplication {
             @Override
             protected void onCollisionEnd(Entity a, Entity b) {
                 actSaffi = false;
+            }
+        });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PLAYER, PokemonTypes.MANCINO) {
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actMancino = true;
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actMancino = true;
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actMancino = false;
             }
         });
 
@@ -132,6 +150,9 @@ public class PokemonApplication extends GameApplication {
                 if(actSaffi){
                     getDialogService().showMessageBox("SAFFI: BUONGIORNO SIGNORI!!!!", () -> {});
                 }
+                if(actMancino){
+                    getDialogService().showMessageBox("MANCINO: STAI ENTRANDO NELLA SEZIONE CRITICA", () -> {});
+                }
             }
         }, KeyCode.E);
 
@@ -156,11 +177,14 @@ public class PokemonApplication extends GameApplication {
 
         double[] coordinatePlayer = trovaSpawn(map, "SPAWNPOINT");
         double[] coordinateSaffi = trovaSpawn(map, "SPAWNSAFFI");
+        double[] coordinateMancino = trovaSpawn(map, "SPAWNMANCINO");
         double[] coordinateGroudon = trovaSpawn(map, "SPAWNGROUDON");
+
 
         //inserisce il player
         player = getGameWorld().spawn("player", coordinatePlayer[0], coordinatePlayer[1]);
         saffi = getGameWorld().spawn("saffi", coordinateSaffi[0], coordinateSaffi[1]);
+        mancino = getGameWorld().spawn("mancino", coordinateMancino[0], coordinateMancino[1]);
         groudon = getGameWorld().spawn("groudon", coordinateGroudon[0], coordinateGroudon[1]);
 
         //sistema la camera
