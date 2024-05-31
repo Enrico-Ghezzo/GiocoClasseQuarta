@@ -14,9 +14,10 @@ import javafx.scene.input.KeyCode;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class PokemonApplication extends GameApplication {
-
-    private Entity player, saffi, mancino, biral, zuccon, diStefano, funes, sandi, pesenti, penzo, pagan, steve, groudon;  //giocatore
+    private Entity player, saffi, mancino, biral, zuccon, diStefano, funes, sandi, pesenti, penzo, pagan, steve, groudon; //definizione delle entità
     private Music gameMusic;    //musica del gioco
+
+    //definizione delle variabili per interagire con le entità
     private Boolean actSaffi = false,
             actMancino = false,
             actBiral = false,
@@ -46,8 +47,12 @@ public class PokemonApplication extends GameApplication {
     //INIZIALIZZA LA FISICA DEL GIOCO
     @Override
     protected void initPhysics() {
+        //mette la gravità a 0
         PhysicsWorld physicsWorld = getPhysicsWorld();
         physicsWorld.setGravity(0, 0);
+
+        //aggiunge collisionHandler per tutte le entità
+        //collisioni saffi
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.SAFFI, PokemonTypes.PLAYER){
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -65,6 +70,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni mancino
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.MANCINO, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -82,6 +88,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni biral
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.BIRAL, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -99,6 +106,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni zuccon
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.ZUCCON, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -116,6 +124,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni di stefano
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.DISTEFANO, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -133,6 +142,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni funes
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.FUNES, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -150,6 +160,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni sandi
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.SANDI, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -167,6 +178,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni pesenti
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PESENTI, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -184,6 +196,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni penzo
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PENZO, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -201,6 +214,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni player
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.PAGAN, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -218,6 +232,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni steve
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.STEVE, PokemonTypes.PLAYER) {
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -235,6 +250,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni groudon
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.GROUDON, PokemonTypes.PLAYER){
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -370,6 +386,7 @@ public class PokemonApplication extends GameApplication {
         //inserisce la mappa con tutte le sue collisioni
         var map = FXGL.setLevelFromMap("livello.tmx");
 
+        //prende le coordinate dello spawn di tutte le entità
         double[] coordinatePlayer = trovaSpawn(map, "SPAWNPOINT");
         double[] coordinateSaffi = trovaSpawn(map, "SPAWNSAFFI");
         double[] coordinateMancino = trovaSpawn(map, "SPAWNMANCINO");
@@ -385,7 +402,7 @@ public class PokemonApplication extends GameApplication {
         double[] coordinateGroudon = trovaSpawn(map, "SPAWNGROUDON");
 
 
-        //inserisce il player
+        //inserisce le entità
         player = getGameWorld().spawn("player", coordinatePlayer[0], coordinatePlayer[1]);
         saffi = getGameWorld().spawn("saffi", coordinateSaffi[0], coordinateSaffi[1]);
         mancino = getGameWorld().spawn("mancino", coordinateMancino[0], coordinateMancino[1]);
@@ -400,7 +417,7 @@ public class PokemonApplication extends GameApplication {
         steve = getGameWorld().spawn("steve", coordinateSteve[0], coordinateSteve[1]);
         groudon = getGameWorld().spawn("groudon", coordinateGroudon[0], coordinateGroudon[1]);
 
-        //sistema la camera
+        //sistema la telecamera
         getGameScene().getViewport().bindToEntity(player, getAppWidth()/2 - player.getWidth()/2, getAppHeight()/2 - player.getHeight()/2);
         getGameScene().getViewport().setZoom(1.5f);
 
@@ -436,9 +453,11 @@ public class PokemonApplication extends GameApplication {
 
     @Override
     protected void onUpdate(double tpf) {
+
+        //controlla se il player è morto
         if(player.getComponent(VitaComponent.class).getVita()<=0){
             FXGL.getNotificationService().pushNotification("SEI MORTO");
-           getGameController().gotoMainMenu();
+            getGameController().gotoMainMenu();
         }
     }
 

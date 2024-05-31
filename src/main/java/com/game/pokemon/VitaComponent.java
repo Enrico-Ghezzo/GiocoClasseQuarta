@@ -30,11 +30,12 @@ public class VitaComponent extends Component {
         if(t == null || a == null){
             entity.removeFromWorld();
         }
-
-        t.playAnimationChannel(a);
-        t.setOnCycleFinished(() -> {
-            entity.removeFromWorld();
-        });
+        else{
+            t.playAnimationChannel(a);
+            t.setOnCycleFinished(() -> {
+                entity.removeFromWorld();
+            });
+        }
     }
 
     public boolean isDead() {
