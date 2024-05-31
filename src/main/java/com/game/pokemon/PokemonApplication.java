@@ -500,8 +500,8 @@ public class PokemonApplication extends GameApplication {
             var medagliaGroudon = getAssetLoader().loadTexture("groudon/iconagroudonmorto.png");
             medagliaGroudon.setScaleX(0.5);
             medagliaGroudon.setScaleY(0.5);
-            medagliaGroudon.setTranslateX(50);
-            medagliaGroudon.setTranslateY(50);
+            medagliaGroudon.setTranslateX(25);
+            medagliaGroudon.setTranslateY(10);
             getGameScene().addUINode(medagliaGroudon);
         }
 
@@ -512,8 +512,8 @@ public class PokemonApplication extends GameApplication {
             var medagliaLapras = getAssetLoader().loadTexture("lapras/iconalaprasmorto.png");
             medagliaLapras.setScaleX(0.5);
             medagliaLapras.setScaleY(0.5);
-            medagliaLapras.setTranslateX(120);
-            medagliaLapras.setTranslateY(50);
+            medagliaLapras.setTranslateX(25);
+            medagliaLapras.setTranslateY(80);
             getGameScene().addUINode(medagliaLapras);
         }
 
@@ -521,27 +521,23 @@ public class PokemonApplication extends GameApplication {
 
     @Override
     protected void initUI() {
-        Text testo = new Text();
-        testo.setTranslateX(125);
-        testo.setTranslateY(30);
-        testo.setText("POKEMON SCONFITTI:");
-        testo.setFill(Color.hsb(0,0,1, 0.7));
-        testo.setScaleX(3);
-        testo.setScaleY(3);
-        getGameScene().addUINode(testo); // aggiunge il testo alla schermata
+        var bacheca = getAssetLoader().loadTexture("bacheca.png");
+        bacheca.setTranslateX(20);
+        bacheca.setTranslateY(20);
+        getGameScene().addUINode(bacheca);
 
         var medagliaGroudon = getAssetLoader().loadTexture("groudon/iconagroudon.png");
+        medagliaGroudon.setTranslateX(25);
+        medagliaGroudon.setTranslateY(10);
         medagliaGroudon.setScaleX(0.5);
         medagliaGroudon.setScaleY(0.5);
-        medagliaGroudon.setTranslateX(50);
-        medagliaGroudon.setTranslateY(50);
         getGameScene().addUINode(medagliaGroudon);
 
         var medagliaLapras = getAssetLoader().loadTexture("lapras/iconalapras.png");
         medagliaLapras.setScaleX(0.5);
         medagliaLapras.setScaleY(0.5);
-        medagliaLapras.setTranslateX(120);
-        medagliaLapras.setTranslateY(50);
+        medagliaLapras.setTranslateX(25);
+        medagliaLapras.setTranslateY(80);
         getGameScene().addUINode(medagliaLapras);
     }
 
