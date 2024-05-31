@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="left-down" width="250" height="250" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="11" nextobjectid="244">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="left-down" width="250" height="250" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#00000000" nextlayerid="11" nextobjectid="246">
  <tileset firstgid="1" name="Terrain" tilewidth="16" tileheight="16" spacing="1" tilecount="336" columns="21">
   <image source="Terrain.png" width="356" height="271"/>
  </tileset>
@@ -214,6 +214,12 @@
   </object>
   <object id="243" type="spawnSteve" x="782" y="3035.33">
    <point/>
+  </object>
+  <object id="244" type="spawnLapras" x="2014" y="2721">
+   <point/>
+  </object>
+  <object id="245" type="ringLapras" x="1787" y="2552" width="534" height="534">
+   <ellipse/>
   </object>
  </objectgroup>
  <layer id="5" name="ground" width="250" height="250" offsetx="0.0301818" offsety="-0.0572727">

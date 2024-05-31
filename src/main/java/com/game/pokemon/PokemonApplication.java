@@ -14,7 +14,7 @@ import javafx.scene.input.KeyCode;
 import static com.almasb.fxgl.dsl.FXGL.*;
 
 public class PokemonApplication extends GameApplication {
-    private Entity player, saffi, mancino, biral, zuccon, diStefano, funes, sandi, pesenti, penzo, pagan, steve, groudon; //definizione delle entità
+    private Entity player, saffi, mancino, biral, zuccon, diStefano, funes, sandi, pesenti, penzo, pagan, steve, groudon, lapras; //definizione delle entità
     private Music gameMusic;    //musica del gioco
 
     //definizione delle variabili per interagire con le entità
@@ -29,7 +29,8 @@ public class PokemonApplication extends GameApplication {
             actPenzo = false,
             actPagan = false,
             actSteve = false,
-            actGroudon = false;
+            actGroudon = false,
+            actLapras = false;
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
@@ -275,6 +276,31 @@ public class PokemonApplication extends GameApplication {
                 groudon.getComponent(GroudonControl.class).setIsColliding(false);
             }
         });
+
+        physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.LAPRAS, PokemonTypes.PLAYER){
+            @Override
+            protected void onCollisionBegin(Entity a, Entity b) {
+                actLapras = true;
+                lapras.getComponent(LaprasControl.class).setIsColliding(true);
+                lapras.getComponent(LaprasControl.class).attacca(() -> {
+                    if(lapras.getComponent(LaprasControl.class).getIsColliding()){
+                        player.getComponent(VitaComponent.class).prendiDanno(lapras.getComponent(LaprasControl.class).getDanno());
+                    }
+                });
+            }
+
+            @Override
+            protected void onCollision(Entity a, Entity b) {
+                actLapras = true;
+                lapras.getComponent(LaprasControl.class).setIsColliding(true);
+            }
+
+            @Override
+            protected void onCollisionEnd(Entity a, Entity b) {
+                actLapras = false;
+                lapras.getComponent(LaprasControl.class).setIsColliding(false);
+            }
+        });
     }
 //############################################################################################################
     //INIZIALIZZA L'INPUT DEL PLAYER
@@ -373,6 +399,9 @@ public class PokemonApplication extends GameApplication {
                 if(actGroudon){
                     groudon.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
                 }
+                if(actLapras){
+                    lapras.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
+                }
             }
         }, KeyCode.F);
     }
@@ -400,6 +429,7 @@ public class PokemonApplication extends GameApplication {
         double[] coordinatePagan = trovaSpawn(map, "SPAWNPAGAN");
         double[] coordinateSteve = trovaSpawn(map, "SPAWNSTEVE");
         double[] coordinateGroudon = trovaSpawn(map, "SPAWNGROUDON");
+        double[] coordinateLapras = trovaSpawn(map, "SPAWNLAPRAS");
 
 
         //inserisce le entità
@@ -416,6 +446,7 @@ public class PokemonApplication extends GameApplication {
         pagan = getGameWorld().spawn("pagan", coordinatePagan[0], coordinatePagan[1]);
         steve = getGameWorld().spawn("steve", coordinateSteve[0], coordinateSteve[1]);
         groudon = getGameWorld().spawn("groudon", coordinateGroudon[0], coordinateGroudon[1]);
+        lapras = getGameWorld().spawn("lapras", coordinateLapras[0], coordinateLapras[1]);
 
         //sistema la telecamera
         getGameScene().getViewport().bindToEntity(player, getAppWidth()/2 - player.getWidth()/2, getAppHeight()/2 - player.getHeight()/2);

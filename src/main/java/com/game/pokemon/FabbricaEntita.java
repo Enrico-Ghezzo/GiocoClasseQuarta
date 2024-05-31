@@ -54,6 +54,25 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    @Spawns("lapras")
+    public Entity newLapras(SpawnData data) {
+        var physics = new PhysicsComponent();
+        physics.setFixtureDef(new FixtureDef().density(0).friction(1.0f).restitution(0.05f));
+        physics.setBodyType(BodyType.KINEMATIC);
+
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.LAPRAS)
+                .bbox(new HitBox(BoundingShape.box(43*1.5,34*1.5)))
+                .anchorFromCenter()
+                .with(physics) //eliminare per togliere fisica
+                .with(new CollidableComponent(true))
+                .with(new LaprasControl())
+                .with(new VitaComponent(200))
+                .with(new BarraVitaComponent())
+                .build();
+    }
+
     @Spawns("saffi")
     public Entity newSaffi(SpawnData data) {
         var physics = new PhysicsComponent();
@@ -66,8 +85,6 @@ public class FabbricaEntita implements EntityFactory {
                 .view(FXGL.texture("safficorsagiu1.png", 14*1.5, 21*1.5))
                 .with(physics)
                 .with(new CollidableComponent(true))
-                .with(new VitaComponent(100))
-                .with(new BarraVitaComponent())
                 .build();
     }
 
@@ -243,6 +260,14 @@ public class FabbricaEntita implements EntityFactory {
                 .build();
     }
 
+    @Spawns("ringLapras")
+    public Entity newRingLapras(SpawnData data) {
+        return new EntityBuilder()
+                .bbox(BoundingShape.circle((int)data.get("width")/2))
+                .type(PokemonTypes.RINGLAPRAS)
+                .build();
+    }
+
     //###################################################################################
     @Spawns("spawnPoint")
     public Entity newSpawn(SpawnData data) {
@@ -345,6 +370,14 @@ public class FabbricaEntita implements EntityFactory {
         return new EntityBuilder()
                 .at(data.getX(), data.getY())
                 .type(PokemonTypes.SPAWNGROUDON)
+                .build();
+    }
+
+    @Spawns("spawnLapras")
+    public Entity newSpawnLapras(SpawnData data) {
+        return new EntityBuilder()
+                .at(data.getX(), data.getY())
+                .type(PokemonTypes.SPAWNLAPRAS)
                 .build();
     }
 }
