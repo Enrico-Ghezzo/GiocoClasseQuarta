@@ -56,20 +56,20 @@ public class LaprasControl extends Component {
 
         //ANIMAZIONI ATTACCO
         runFrames.clear();
-        for (int i = 1; i <= 3; i++) {
-            runFrames.add(FXGL.image("groudon/attaccogiu" + i + ".png", 40*playerScale, 53*playerScale));
+        for (int i = 1; i <= 2; i++) {
+            runFrames.add(FXGL.image("lapras/attacco/attaccogiu" + i + ".png", 35*playerScale, 40*playerScale));
         }
         animAttackDown = new AnimationChannel(runFrames, Duration.seconds(1.5));
 
         runFrames.clear();
-        for (int i = 1; i <= 3; i++) {
-            runFrames.add(FXGL.image("groudon/attaccolaterale" + i + ".png", 40*playerScale, 53*playerScale));
+        for (int i = 1; i <= 2; i++) {
+            runFrames.add(FXGL.image("lapras/attacco/attaccolaterale" + i + ".png", 35*playerScale, 40*playerScale));
         }
         animAttackSide = new AnimationChannel(runFrames, Duration.seconds(1.5));
 
         runFrames.clear();
-        for (int i = 1; i <= 3; i++) {
-            runFrames.add(FXGL.image("groudon/attaccosu" + i + ".png", 40*playerScale, 53*playerScale));
+        for (int i = 1; i <= 2; i++) {
+            runFrames.add(FXGL.image("lapras/attacco/attaccosu" + i + ".png", 35*playerScale, 40*playerScale));
         }
         animAttackUp = new AnimationChannel(runFrames, Duration.seconds(1.5));
 

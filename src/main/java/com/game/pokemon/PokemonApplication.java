@@ -10,6 +10,8 @@ import com.almasb.fxgl.input.UserAction;
 import com.almasb.fxgl.physics.CollisionHandler;
 import com.almasb.fxgl.physics.PhysicsWorld;
 import javafx.scene.input.KeyCode;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
@@ -367,7 +369,7 @@ public class PokemonApplication extends GameApplication {
                     getDialogService().showMessageBox("BIRAL: POPA...  ESSERE INUTILE...", () -> {});
                 }
                 if(actZuccon){
-                    getDialogService().showMessageBox("ZUCCON: *FRASE DA DECIDERE*", () -> {});
+                    getDialogService().showMessageBox("ZUCCON: IPNOTIZZATI...", () -> {});
                 }
                 if(actDistefano){
                     getDialogService().showMessageBox("DI STEFANO: HAI FATTO GLI ESERCIZI?", () -> {});
@@ -376,7 +378,7 @@ public class PokemonApplication extends GameApplication {
                     getDialogService().showMessageBox("FUNES: APRITE CISCO PACKET TRACER", () -> {});
                 }
                 if(actSandi){
-                    getDialogService().showMessageBox("SANDI: COME SCUSA ?!?!", () -> {});
+                    getDialogService().showMessageBox("SANDI: COME SCUSA?!?!", () -> {});
                 }
                 if(actPesenti){
                     getDialogService().showMessageBox("PESENTI: NON HO ANCORA CORRETTO LE VERIFICHE", () -> {});
@@ -490,6 +492,57 @@ public class PokemonApplication extends GameApplication {
             FXGL.getNotificationService().pushNotification("SEI MORTO");
             getGameController().gotoMainMenu();
         }
+
+        try{
+            groudon.getComponent(GroudonControl.class);
+        }
+        catch (Exception e){
+            var medagliaGroudon = getAssetLoader().loadTexture("groudon/iconagroudonmorto.png");
+            medagliaGroudon.setScaleX(0.5);
+            medagliaGroudon.setScaleY(0.5);
+            medagliaGroudon.setTranslateX(50);
+            medagliaGroudon.setTranslateY(50);
+            getGameScene().addUINode(medagliaGroudon);
+        }
+
+        try{
+            lapras.getComponent(LaprasControl.class);
+        }
+        catch (Exception e){
+            var medagliaLapras = getAssetLoader().loadTexture("lapras/iconalaprasmorto.png");
+            medagliaLapras.setScaleX(0.5);
+            medagliaLapras.setScaleY(0.5);
+            medagliaLapras.setTranslateX(120);
+            medagliaLapras.setTranslateY(50);
+            getGameScene().addUINode(medagliaLapras);
+        }
+
+    }
+
+    @Override
+    protected void initUI() {
+        Text testo = new Text();
+        testo.setTranslateX(125);
+        testo.setTranslateY(30);
+        testo.setText("POKEMON SCONFITTI:");
+        testo.setFill(Color.hsb(0,0,1, 0.7));
+        testo.setScaleX(3);
+        testo.setScaleY(3);
+        getGameScene().addUINode(testo); // aggiunge il testo alla schermata
+
+        var medagliaGroudon = getAssetLoader().loadTexture("groudon/iconagroudon.png");
+        medagliaGroudon.setScaleX(0.5);
+        medagliaGroudon.setScaleY(0.5);
+        medagliaGroudon.setTranslateX(50);
+        medagliaGroudon.setTranslateY(50);
+        getGameScene().addUINode(medagliaGroudon);
+
+        var medagliaLapras = getAssetLoader().loadTexture("lapras/iconalapras.png");
+        medagliaLapras.setScaleX(0.5);
+        medagliaLapras.setScaleY(0.5);
+        medagliaLapras.setTranslateX(120);
+        medagliaLapras.setTranslateY(50);
+        getGameScene().addUINode(medagliaLapras);
     }
 
     //LANCIA IL GIOCO
