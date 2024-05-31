@@ -1,5 +1,6 @@
 package com.game.pokemon;
 
+import com.almasb.fxgl.audio.Music;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.texture.AnimatedTexture;
@@ -20,7 +21,7 @@ public class GroudonControl extends Component {
     private float velocity = 50;
     private int danno = 20;
     private String direzione = "giu";
-    private boolean isColliding = false, isAttacking = false, isDamaging = false;
+    private boolean isColliding = false, isAttacking = false;
 
     public GroudonControl() {
         //CARICA LE ANIMAZIONI IN MEMORIA
@@ -153,7 +154,10 @@ public class GroudonControl extends Component {
                 direzione = "giu";
             }
         }
+    }
 
+    public boolean isPlayerInRing(){
+        return FXGL.getGameWorld().getEntitiesByType(PokemonTypes.PLAYER).getFirst().getCenter().distance(FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGGROUDON).getFirst().getCenter()) <= FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGGROUDON).getFirst().getWidth()/2 && !entity.getComponent(VitaComponent.class).isDead();
     }
 
     public void setIsColliding(boolean b){
@@ -161,13 +165,6 @@ public class GroudonControl extends Component {
     }
     public boolean getIsColliding(){
         return isColliding;
-    }
-
-    public void setIsDamaging(boolean b){
-        this.isDamaging = b;
-    }
-    public boolean getIsDamaging() {
-        return isDamaging;
     }
 
     public int getDanno(){

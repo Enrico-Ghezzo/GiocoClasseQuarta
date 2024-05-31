@@ -1,5 +1,6 @@
 package com.game.pokemon;
 
+import com.almasb.fxgl.audio.Music;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.physics.PhysicsComponent;
@@ -19,7 +20,7 @@ public class LaprasControl extends Component {
     private float velocity = 50;
     private int danno = 20;
     private String direzione = "giu";
-    private boolean isColliding = false, isAttacking = false, isDamaging = false;
+    private boolean isColliding = false, isAttacking = false;
 
     public LaprasControl() {
         //CARICA LE ANIMAZIONI IN MEMORIA
@@ -161,12 +162,8 @@ public class LaprasControl extends Component {
     public boolean getIsColliding(){
         return isColliding;
     }
-
-    public void setIsDamaging(boolean b){
-        this.isDamaging = b;
-    }
-    public boolean getIsDamaging() {
-        return isDamaging;
+    public boolean isPlayerInRing(){
+        return FXGL.getGameWorld().getEntitiesByType(PokemonTypes.PLAYER).getFirst().getCenter().distance(FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGLAPRAS).getFirst().getCenter()) <= FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGLAPRAS).getFirst().getWidth()/2 && !entity.getComponent(VitaComponent.class).isDead();
     }
 
     public int getDanno(){

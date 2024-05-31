@@ -18,6 +18,7 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 public class PokemonApplication extends GameApplication {
     private Entity player, saffi, mancino, biral, zuccon, diStefano, funes, sandi, pesenti, penzo, pagan, steve, groudon, lapras; //definizione delle entità
     private Music gameMusic;    //musica del gioco
+    private Music musicaBattaglia;
 
     //definizione delle variabili per interagire con le entità
     private Boolean actSaffi = false,
@@ -32,7 +33,8 @@ public class PokemonApplication extends GameApplication {
             actPagan = false,
             actSteve = false,
             actGroudon = false,
-            actLapras = false;
+            actLapras = false,
+            isMusicPlaying = false;
 
     //INIZIALIZZA LE IMPOSTAZIONI DEL GIOCO
     @Override
@@ -411,6 +413,8 @@ public class PokemonApplication extends GameApplication {
     //INIZIALIZZA IL GIOCO IN GENERALE
     @Override
     protected void initGame() {
+        musicaBattaglia = FXGL.getAssetLoader().loadMusic("battle.mp3");
+
         //crea una nuova fabbrica di entità
         getGameWorld().addEntityFactory(new FabbricaEntita());
 
@@ -484,6 +488,26 @@ public class PokemonApplication extends GameApplication {
         return null;
     }
 
+    private boolean isGroudonPresent(){
+        try{
+            groudon.getComponent(GroudonControl.class);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
+    private boolean isLaprasPresent(){
+        try{
+            lapras.getComponent(LaprasControl.class);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
     @Override
     protected void onUpdate(double tpf) {
 
@@ -492,6 +516,24 @@ public class PokemonApplication extends GameApplication {
             FXGL.getNotificationService().pushNotification("SEI MORTO");
             getGameController().gotoMainMenu();
         }
+
+
+        if ((isGroudonPresent() && groudon.getComponent(GroudonControl.class).isPlayerInRing())) { //sistemare per eccezioni
+            FXGL.getAudioPlayer().stopMusic(gameMusic);
+            FXGL.getAudioPlayer().loopMusic(musicaBattaglia);
+            isMusicPlaying = false;
+        } else if ((isLaprasPresent() && lapras.getComponent(LaprasControl.class).isPlayerInRing())) {
+            FXGL.getAudioPlayer().stopMusic(gameMusic);
+            FXGL.getAudioPlayer().loopMusic(musicaBattaglia);
+            isMusicPlaying = false;
+        } else {
+            if (!isMusicPlaying) {
+                FXGL.getAudioPlayer().stopMusic(musicaBattaglia);
+                FXGL.getAudioPlayer().loopMusic(gameMusic);
+                isMusicPlaying = true;
+            }
+        }
+
 
         try{
             groudon.getComponent(GroudonControl.class);
