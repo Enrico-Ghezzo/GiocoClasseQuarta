@@ -41,11 +41,12 @@ public class PokemonApplication extends GameApplication {
     protected void initSettings(GameSettings settings) {
         settings.setWidth(1000);
         settings.setHeight(720);
+        settings.setAppIcon("immagineApp.png");
         settings.setTitle("Pokemon boh");
         settings.setVersion("0.1");
         settings.setMainMenuEnabled(true);
         settings.setSceneFactory(new FabbricaScene());
-        //settings.setIntroEnabled(true);
+        settings.setIntroEnabled(true);
         settings.setDeveloperMenuEnabled(true);
     }
 
@@ -514,25 +515,32 @@ public class PokemonApplication extends GameApplication {
         //controlla se il player è morto
         if(player.getComponent(VitaComponent.class).getVita()<=0){
             FXGL.getNotificationService().pushNotification("SEI MORTO");
+            player.getComponent(VitaComponent.class).muori(null, null);
             getGameController().gotoMainMenu();
         }
 
 
-        if ((isGroudonPresent() && groudon.getComponent(GroudonControl.class).isPlayerInRing())) { //sistemare per eccezioni
-            FXGL.getAudioPlayer().stopMusic(gameMusic);
-            FXGL.getAudioPlayer().loopMusic(musicaBattaglia);
-            isMusicPlaying = false;
-        } else if ((isLaprasPresent() && lapras.getComponent(LaprasControl.class).isPlayerInRing())) {
-            FXGL.getAudioPlayer().stopMusic(gameMusic);
-            FXGL.getAudioPlayer().loopMusic(musicaBattaglia);
-            isMusicPlaying = false;
-        } else {
-            if (!isMusicPlaying) {
-                FXGL.getAudioPlayer().stopMusic(musicaBattaglia);
-                FXGL.getAudioPlayer().loopMusic(gameMusic);
-                isMusicPlaying = true;
+        try{
+            if ((isGroudonPresent() && groudon.getComponent(GroudonControl.class).isPlayerInRing())) { //sistemare per eccezioni
+                FXGL.getAudioPlayer().stopMusic(gameMusic);
+                FXGL.getAudioPlayer().loopMusic(musicaBattaglia);
+                isMusicPlaying = false;
+            } else if ((isLaprasPresent() && lapras.getComponent(LaprasControl.class).isPlayerInRing())) {
+                FXGL.getAudioPlayer().stopMusic(gameMusic);
+                FXGL.getAudioPlayer().loopMusic(musicaBattaglia);
+                isMusicPlaying = false;
+            } else {
+                if (!isMusicPlaying) {
+                    FXGL.getAudioPlayer().stopMusic(musicaBattaglia);
+                    FXGL.getAudioPlayer().loopMusic(gameMusic);
+                    isMusicPlaying = true;
+                }
             }
         }
+        catch (Exception e){
+            FXGL.getAudioPlayer().stopMusic(musicaBattaglia);
+        }
+
 
 
         try{

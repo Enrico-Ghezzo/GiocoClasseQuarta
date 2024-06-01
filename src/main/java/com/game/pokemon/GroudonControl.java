@@ -156,7 +156,7 @@ public class GroudonControl extends Component {
         }
     }
 
-    public boolean isPlayerInRing(){
+    public boolean isPlayerInRing() throws Exception{
         return FXGL.getGameWorld().getEntitiesByType(PokemonTypes.PLAYER).getFirst().getCenter().distance(FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGGROUDON).getFirst().getCenter()) <= FXGL.getGameWorld().getEntitiesByType(PokemonTypes.RINGGROUDON).getFirst().getWidth()/2 && !entity.getComponent(VitaComponent.class).isDead();
     }
 
