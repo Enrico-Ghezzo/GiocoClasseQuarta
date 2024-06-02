@@ -4,6 +4,9 @@ import com.almasb.fxgl.entity.component.Component;
 import com.almasb.fxgl.texture.AnimatedTexture;
 import com.almasb.fxgl.texture.AnimationChannel;
 
+/**
+ * Classe per creare il componente della vita nelle entità
+ */
 public class VitaComponent extends Component {
     private int vita;
     private boolean isDead = false;

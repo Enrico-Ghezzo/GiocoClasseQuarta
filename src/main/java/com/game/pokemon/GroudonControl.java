@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import static com.almasb.fxgl.dsl.FXGL.getDialogService;
 import static com.almasb.fxgl.dsl.FXGL.getNotificationService;
 
+/**
+ * Classe che controlla il comportamento di groudon
+ */
 public class GroudonControl extends Component {
     private PhysicsComponent physics;
     private AnimationChannel animIdle, animRunSide, animRunUp, animRunDown, animAttackDown, animAttackSide, animAttackUp, animDeath;

@@ -1,5 +1,8 @@
 package com.game.pokemon;
 
+/**
+ * enum che definisce i tipi di entità presenti nel gioco
+ */
 public enum PokemonTypes {
     PLAYER, SPAWNPOINT,
     RINGGROUDON, RINGLAPRAS,

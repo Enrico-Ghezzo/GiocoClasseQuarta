@@ -15,6 +15,12 @@ import javafx.scene.text.Text;
 
 import static com.almasb.fxgl.dsl.FXGL.*;
 
+/**
+ * @author Enrico Ghezzo
+ * @author Samuele Ferro
+ * @author Matteo Lombardi
+ */
+
 public class PokemonApplication extends GameApplication {
     private Entity player, saffi, mancino, biral, zuccon, diStefano, funes, sandi, pesenti, penzo, pagan, steve, groudon, lapras; //definizione delle entità
     private Music gameMusic;    //musica del gioco
@@ -282,6 +288,7 @@ public class PokemonApplication extends GameApplication {
             }
         });
 
+        //collisioni lapras
         physicsWorld.addCollisionHandler(new CollisionHandler(PokemonTypes.LAPRAS, PokemonTypes.PLAYER){
             @Override
             protected void onCollisionBegin(Entity a, Entity b) {
@@ -470,6 +477,7 @@ public class PokemonApplication extends GameApplication {
         FXGL.getAudioPlayer().stopAllMusic();
     }
 
+    //funzione per trovare lo spawn di qualunque entità
     private double[] trovaSpawn(Level map, String tipo){
         int i = 0;
         double[] coordinate = new double[2];
@@ -489,6 +497,7 @@ public class PokemonApplication extends GameApplication {
         return null;
     }
 
+    //funzione per vedere se groudon è presente
     private boolean isGroudonPresent(){
         try{
             groudon.getComponent(GroudonControl.class);
@@ -499,6 +508,7 @@ public class PokemonApplication extends GameApplication {
         }
     }
 
+    //funzione per vedere se lapras è presente
     private boolean isLaprasPresent(){
         try{
             lapras.getComponent(LaprasControl.class);
@@ -520,6 +530,7 @@ public class PokemonApplication extends GameApplication {
         }
 
 
+        //mette la musica di combattimento quando serve
         try{
             if ((isGroudonPresent() && groudon.getComponent(GroudonControl.class).isPlayerInRing())) { //sistemare per eccezioni
                 FXGL.getAudioPlayer().stopMusic(gameMusic);
@@ -543,6 +554,7 @@ public class PokemonApplication extends GameApplication {
 
 
 
+        //mette l'icona di groudon sconfito quando muore
         try{
             groudon.getComponent(GroudonControl.class);
         }
@@ -555,6 +567,7 @@ public class PokemonApplication extends GameApplication {
             getGameScene().addUINode(medagliaGroudon);
         }
 
+        //mette l'icona di lapras sconfitto quando muore
         try{
             lapras.getComponent(LaprasControl.class);
         }
@@ -571,11 +584,13 @@ public class PokemonApplication extends GameApplication {
 
     @Override
     protected void initUI() {
+        //mette la bacheca
         var bacheca = getAssetLoader().loadTexture("bacheca.png");
         bacheca.setTranslateX(20);
         bacheca.setTranslateY(20);
         getGameScene().addUINode(bacheca);
 
+        //mette l'icona di groudon vivo
         var medagliaGroudon = getAssetLoader().loadTexture("groudon/iconagroudon.png");
         medagliaGroudon.setTranslateX(25);
         medagliaGroudon.setTranslateY(10);
@@ -583,6 +598,7 @@ public class PokemonApplication extends GameApplication {
         medagliaGroudon.setScaleY(0.5);
         getGameScene().addUINode(medagliaGroudon);
 
+        //mette l'icona di lapras vivo
         var medagliaLapras = getAssetLoader().loadTexture("lapras/iconalapras.png");
         medagliaLapras.setScaleX(0.5);
         medagliaLapras.setScaleY(0.5);

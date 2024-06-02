@@ -6,6 +6,9 @@ import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.scene.Scene;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Classe che modifica il menu di gioco
+ */
 public class GameMenu extends FXGLDefaultMenu {
 
     public GameMenu(MenuType type) {

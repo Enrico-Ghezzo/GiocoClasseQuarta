@@ -1,14 +1,12 @@
 package com.game.pokemon;
 
-import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.component.Component;
-import com.almasb.fxgl.ui.Position;
 import com.almasb.fxgl.ui.ProgressBar;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
-import java.awt.*;
-
+/**
+ * Classe per creare la barra della vita alle entità
+ */
 public class BarraVitaComponent extends Component {
     private ProgressBar progressBar = new ProgressBar(false);
     public BarraVitaComponent() {

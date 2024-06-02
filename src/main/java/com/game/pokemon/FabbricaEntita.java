@@ -13,6 +13,10 @@ import com.almasb.fxgl.physics.PhysicsComponent;
 import com.almasb.fxgl.physics.box2d.dynamics.BodyType;
 import com.almasb.fxgl.physics.box2d.dynamics.FixtureDef;
 
+/**
+ * Classe per creare le entità
+ */
+
 public class FabbricaEntita implements EntityFactory {
 
     //DEFINISCE L'ENTITA' DEL GIOCATORE

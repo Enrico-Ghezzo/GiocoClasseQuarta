@@ -12,6 +12,9 @@ import java.util.ArrayList;
 
 import static com.almasb.fxgl.dsl.FXGL.getNotificationService;
 
+/**
+ * Classe che controlla i comportamenti di lapras
+ */
 public class LaprasControl extends Component {
     private PhysicsComponent physics;
     private AnimationChannel animIdle, animRunSide, animRunUp, animRunDown, animAttackDown, animAttackSide, animAttackUp, animDeath;

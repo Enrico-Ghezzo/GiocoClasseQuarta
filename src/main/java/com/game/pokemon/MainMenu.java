@@ -8,6 +8,9 @@ import com.almasb.fxgl.scene.Scene;
 import javafx.scene.layout.Background;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Classe che modifica il menu principale
+ */
 public class MainMenu extends FXGLDefaultMenu {
     private Music musicaMenu;
 

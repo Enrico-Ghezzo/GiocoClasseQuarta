@@ -6,6 +6,9 @@ import com.almasb.fxgl.app.scene.MenuType;
 import com.almasb.fxgl.app.scene.SceneFactory;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Classe per modificare i menu
+ */
 public class FabbricaScene extends SceneFactory {
     //CREA IL NUOVO MENU PRINCIPALE
     public FXGLMenu newMainMenu(){
