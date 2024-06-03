@@ -409,10 +409,14 @@ public class PokemonApplication extends GameApplication {
             @Override
             protected void onActionBegin() {
                 if(actGroudon){
-                    groudon.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
+                    if(isGroudonPresent()){
+                        groudon.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
+                    }
                 }
                 if(actLapras){
-                    lapras.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
+                    if(isLaprasPresent()){
+                        lapras.getComponent(VitaComponent.class).prendiDanno(player.getComponent(PlayerControl.class).attacca());
+                    }
                 }
             }
         }, KeyCode.F);

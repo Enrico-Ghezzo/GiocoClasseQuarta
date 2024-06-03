@@ -27,7 +27,12 @@ public class VitaComponent extends Component {
     }
 
     public void prendiDanno(int danno){
-        vita = vita - danno;
+        if(vita - danno <= 0){
+            vita = 0;
+        }
+        else{
+            vita = vita - danno;
+        }
     }
     public void muori(AnimatedTexture t, AnimationChannel a){
         if(t == null || a == null){
