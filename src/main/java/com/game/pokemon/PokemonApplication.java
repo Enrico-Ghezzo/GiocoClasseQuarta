@@ -551,6 +551,7 @@ public class PokemonApplication extends GameApplication {
                     isMusicPlaying = true;
                 }
 
+                //per risolvere il bug dopo la morte
                 actGroudon = false;
                 actLapras = false;
             }
