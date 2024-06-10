@@ -1,0 +1,672 @@
+14:30:32.980 [main                     ] DEBUG Logger               - Configured Logger
+14:30:33.011 [main                     ] DEBUG GameApplication      - Logging settings
+Title: Pokemon boh
+Version: 0.1
+Width: 1000
+Height: 720
+Fullscreen: false
+Intro: true
+Profiling: false
+Single step:false
+App Mode: DEVELOPER
+Menu Key: ESCAPE
+Stage Style: DECORATED
+Scene Factory: class com.game.pokemon.FabbricaScene
+
+14:30:33.281 [JavaFX Application Thread] DEBUG FXGLApplication      - Initializing FXGL
+14:30:33.284 [JavaFX Application Thread] INFO  Engine               - FXGL-17.3 (30.03.2023 11.49) on WINDOWS (J:22.0.1 FX:22-ea)
+14:30:33.284 [JavaFX Application Thread] DEBUG Engine               - JRE Vendor Name: Oracle Corporation
+14:30:33.285 [JavaFX Application Thread] DEBUG Engine               - Running on OS: Windows 11 version 10.0
+14:30:33.285 [JavaFX Application Thread] DEBUG Engine               - Architecture: amd64
+14:30:33.285 [JavaFX Application Thread] INFO  Engine               - Source code and latest versions at: https://github.com/AlmasB/FXGL
+14:30:33.285 [JavaFX Application Thread] INFO  Engine               -       Ask questions and discuss at: https://github.com/AlmasB/FXGL/discussions
+14:30:33.285 [JavaFX Application Thread] INFO  Engine               -              Join the FXGL chat at: https://gitter.im/AlmasB/FXGL
+14:30:33.359 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Creating a JavaFX scene
+14:30:33.399 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Target settings size: 1000.0 x 720.0
+14:30:33.399 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled scene size:    1000.0 x 720.0
+14:30:33.399 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled ratio: (1.0, 1.0)
+14:30:33.400 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Set initial scene to FXGLStartupScene
+14:30:33.403 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Opening main window
+14:30:33.470 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Window border size: (16.0, 39.0)
+14:30:33.471 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled size: 1000.0 x 720.0
+14:30:33.471 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scaled ratio: (1.0, 1.0)
+14:30:33.471 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Scene size: 1000.0 x 720.0
+14:30:33.472 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Stage size: 1016.0 x 759.0
+14:30:33.478 [FXGL Background Thread 1 ] DEBUG Engine               - Initializing environment variables
+14:30:33.530 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - User app class for loading assets: class com.game.pokemon.PokemonApplication
+14:30:33.530 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Applying CSS: fxgl_dark.css
+14:30:33.531 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/ui/css/fxgl_dark.css
+14:30:33.579 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Initializing application scenes
+14:30:33.614 [FXGL Background Thread 1 ] DEBUG GameWorld            - Game world initialized
+14:30:33.685 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Physics world initialized: appHeight=720, physics.ppm=50,0
+14:30:33.686 [FXGL Background Thread 1 ] DEBUG PhysicsWorld         - Using strategy: BRUTE_FORCE
+14:30:33.689 [FXGL Background Thread 1 ] DEBUG GameScene            - Game scene initialized: 1000x720
+14:30:33.694 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/textures/intro/fxgl_logo.png
+14:30:33.713 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/textures/intro/javafx_logo.png
+14:30:33.846 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createMenuBodyMainMenu()
+14:30:33.862 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createOptionsMenu()
+14:30:33.873 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/textures/particles/smoke.png
+14:30:33.936 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/textures/particles/trace_horizontal.png
+14:30:33.963 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/music/musicaMenu.mp3
+14:30:34.087 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createMenuBodyGameMenu()
+14:30:34.089 [FXGL Background Thread 1 ] DEBUG FXGL.DefaultMenu     - createOptionsMenu()
+14:30:34.104 [FXGL Background Thread 1 ] DEBUG GameApplicationServi - Application scenes initialized
+14:30:34.118 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Loading FXGL system data
+14:30:34.124 [FXGL Background Thread 1 ] DEBUG FileSystemAccess     - Reading from: C:\Users\MatteoLombardi\IdeaProjects\GiocoClasseQuarta\system\fxgl.bundle
+14:30:34.133 [FXGL Background Thread 1 ] DEBUG SystemBundleService  - Bundle FXGL: {}
+14:30:34.133 [FXGL Background Thread 1 ] DEBUG UpdaterService       - Checking for updates
+14:30:34.162 [FXGL Background Thread 1 ] DEBUG FXGLApplication      - Loading default localization
+14:30:34.163 [FXGL Background Thread 1 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/languages/english.lang
+14:30:34.163 [FXGL Background Thread 4 ] DEBUG FXGLApplication      - Loading fonts
+14:30:34.163 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/ui/fonts/VarelaRound-Regular.ttf
+14:30:34.193 [FXGL Background Thread 1 ] INFO  FXGLApplication      - FXGL initialization took: 0,716 sec
+14:30:34.207 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Right - D
+14:30:34.207 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Left - A
+14:30:34.207 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/ui/fonts/Abel-Regular.ttf
+14:30:34.207 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Up - W
+14:30:34.208 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Move Down - S
+14:30:34.208 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Talk - E
+14:30:34.208 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Attack - F
+14:30:34.208 [JavaFX Application Thread] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/immagineApp.png
+14:30:34.220 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/ui/fonts/TerminalLandMono-Regular.otf
+14:30:34.225 [JavaFX Application Thread] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/textures/fxgl_default_cursor.png
+14:30:34.228 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Screenshot - CTRL+8
+14:30:34.228 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Dev Options - 1
+14:30:34.228 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Dev Console - 2
+14:30:34.229 [JavaFX Application Thread] DEBUG Input                - Registered new binding: System info dump - CTRL+9
+14:30:34.229 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Restart - CTRL+R
+14:30:34.230 [JavaFX Application Thread] DEBUG Input                - Registered new binding: Toggle Debug Camera - CTRL+7
+14:30:34.233 [JavaFX Application Thread] DEBUG LoopRunner           - Starting loop
+14:30:34.234 [FXGL Background Thread 4 ] DEBUG FXGLAssetLoaderServi - Loading from file system: jar:file:///C:/Users/MatteoLombardi/.m2/repository/com/github/almasb/fxgl/17.3/fxgl-17.3.jar!/fxglassets/ui/fonts/Courier-Prime.ttf
+14:30:34.249 [JavaFX Application Thread] DEBUG LoopRunner           - Initializing JavaFX AnimationTimerLoop
+14:30:34.304 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+14:30:34.316 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLStartupScene and adding to FXGLIntroScene
+14:30:34.320 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLStartupScene -> FXGLIntroScene
+14:30:34.325 [JavaFX Application Thread] DEBUG FXGLApplication      - Registering font factories with UI factory
+14:30:34.613 [FXGL Background Thread 2 ] INFO  UpdaterService       - Your current version:  17.3
+14:30:34.613 [FXGL Background Thread 2 ] INFO  UpdaterService       - Latest stable version: 21.1
+14:30:37.162 [FXGL Background Thread 3 ] DEBUG Engine               - Logging environment variables
+14:30:37.162 [FXGL Background Thread 3 ] DEBUG Engine               - achievements: []
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - actualHeight: 720.0
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - actualHeightProperty: ReadOnlyDoubleProperty [value: 720.0]
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - actualWidth: 1000.0
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - actualWidthProperty: ReadOnlyDoubleProperty [value: 1000.0]
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - appIcon: immagineApp.png
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - applicationMode: DEVELOPER
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - cSSList: [fxgl_dark.css]
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - collisionDetectionStrategy: BRUTE_FORCE
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - configClass: Optional.empty
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - credits: []
+14:30:37.163 [FXGL Background Thread 3 ] DEBUG Engine               - defaultCursor: CursorInfo(imageName=fxgl_default_cursor.png, hotspotX=7.0, hotspotY=6.0)
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - devBBoxColorProperty: ObjectProperty [value: 0xff0000ff]
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - devEnableDebugCameraProperty: BooleanProperty [value: false]
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - devSensorColorProperty: ObjectProperty [value: 0xffff00ff]
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - devShowBBoxProperty: BooleanProperty [value: false]
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - devShowPositionProperty: BooleanProperty [value: false]
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - enabledMenuItems: []
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - engineServices: [class com.almasb.fxgl.app.services.FXGLAssetLoaderService, class com.almasb.fxgl.app.FXGLApplication$GameApplicationService, class com.almasb.fxgl.app.services.FXGLDialogService, class com.almasb.fxgl.app.services.IOTaskExecutorService, class com.almasb.fxgl.io.FileSystemService, class com.almasb.fxgl.localization.LocalizationService, class com.almasb.fxgl.app.services.SystemBundleService, class com.almasb.fxgl.profile.SaveLoadService, class com.almasb.fxgl.ui.FXGLUIFactoryServiceProvider, class com.almasb.fxgl.ui.FXGLDialogFactoryServiceProvider, class com.almasb.fxgl.audio.AudioPlayer, class com.almasb.fxgl.notification.impl.NotificationServiceProvider, class com.almasb.fxgl.achievement.AchievementService, class com.almasb.fxgl.cutscene.CutsceneService, class com.almasb.fxgl.minigames.MiniGameService, class com.almasb.fxgl.net.NetService, class com.almasb.fxgl.app.services.UpdaterService, class com.almasb.fxgl.dev.DevService]
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - fontGame: Abel-Regular.ttf
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - fontMono: TerminalLandMono-Regular.otf
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - fontSizeScaleUI: 1.0
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - fontText: Courier-Prime.ttf
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - fontUI: VarelaRound-Regular.ttf
+14:30:37.164 [FXGL Background Thread 3 ] DEBUG Engine               - fullScreen: BooleanProperty [value: false]
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - gameDifficulty: MEDIUM
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - gameDifficultyProperty: ObjectProperty [value: MEDIUM]
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - globalMusicVolume: 0.5
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - globalMusicVolumeProperty: DoubleProperty [value: 0.5]
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - globalSoundVolume: 0.5
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - globalSoundVolumeProperty: DoubleProperty [value: 0.5]
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - height: 720
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - is3D: false
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - isAndroid: false
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - isBrowser: false
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - isClickFeedbackEnabled: false
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - isCloseConfirmation: false
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - isDesktop: true
+14:30:37.165 [FXGL Background Thread 3 ] DEBUG Engine               - isDeveloperMenuEnabled: true
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isEmbedded: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isEntityPreloadEnabled: true
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isExperimentalTiledLargeMap: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isFileSystemWriteAllowed: true
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isFullScreenAllowed: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isFullScreenFromStart: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isGameMenuEnabled: true
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isIOS: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isIntroEnabled: true
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isLinux: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isMac: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isMainMenuEnabled: true
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isManualResizeEnabled: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isMobile: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isNative: false
+14:30:37.166 [FXGL Background Thread 3 ] DEBUG Engine               - isPauseMusicWhenMinimized: true
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - isPreserveResizeRatio: false
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - isProfilingEnabled: false
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - isScaleAffectedOnResize: true
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - isSingleStep: false
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - isUserProfileEnabled: false
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - isWindows: true
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - language: ObjectProperty [value: ENGLISH]
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - menuKey: ESCAPE
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - mouseSensitivity: 0.2
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - notificationViewClass: class com.almasb.fxgl.notification.view.XboxNotificationView
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - pixelsPerMeter: 50.0
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - platform: WINDOWS
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - prefHeightProperty: ReadOnlyDoubleProperty [value: 720.0]
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - prefWidthProperty: ReadOnlyDoubleProperty [value: 1000.0]
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - profileDir: profiles/
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - profileName: StringProperty [value: DEFAULT]
+14:30:37.167 [FXGL Background Thread 3 ] DEBUG Engine               - randomSeed: -1
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - runtimeInfo: RuntimeInfo(platform=WINDOWS, version=17.3, build=30.03.2023 11.49)
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - saveFileExt: sav
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - scaledHeightProp$fxgl: DoubleProperty [bound, value: 720.0]
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - scaledWidthProp$fxgl: DoubleProperty [bound, value: 1000.0]
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - sceneFactory: com.game.pokemon.FabbricaScene@5e5594be
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - secondsIn24h: 60
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - soundMenuBack: menu/back.wav
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - soundMenuPress: menu/press.wav
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - soundMenuSelect: menu/select.wav
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - soundNotification: core/notification.wav
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - stageStyle: DECORATED
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - supportedLanguages: [ENGLISH, FRENCH, GERMAN, HUNGARIAN, RUSSIAN]
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - ticksPerSecond: -1
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - title: Pokemon boh
+14:30:37.168 [FXGL Background Thread 3 ] DEBUG Engine               - urlGithub: https://github.com/AlmasB/FXGL
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - urlLeaderboard: http://fxgl-top.herokuapp.com/
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - urlPOM: https://raw.githubusercontent.com/AlmasB/FXGL/release/README.md
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - userAppClass: class com.game.pokemon.PokemonApplication
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - version: 0.1
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - versionCheckDays: 7
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - width: 1000
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - Logging services
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.FXGLAssetLoaderService
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.FXGLApplication$GameApplicationService
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.FXGLDialogService
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.IOTaskExecutorService
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.io.FileSystemService
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.localization.LocalizationService
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.SystemBundleService
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.profile.SaveLoadService
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.ui.FXGLUIFactoryServiceProvider
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.ui.FXGLDialogFactoryServiceProvider
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.audio.AudioPlayer
+14:30:37.169 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.notification.impl.NotificationServiceProvider
+14:30:37.170 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.achievement.AchievementService
+14:30:37.170 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.cutscene.CutsceneService
+14:30:37.170 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.minigames.MiniGameService
+14:30:37.170 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.net.NetService
+14:30:37.170 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.app.services.UpdaterService
+14:30:37.170 [FXGL Background Thread 3 ] DEBUG Engine               - class com.almasb.fxgl.dev.DevService
+14:30:42.185 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+14:30:42.190 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLIntroScene and adding to FXGLMainMenuDummyScene
+14:30:42.193 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLIntroScene -> FXGLMainMenuDummyScene
+14:30:42.194 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Push state: MainMenu
+14:30:42.198 [JavaFX Application Thread] DEBUG AudioPlayer          - Playing music com.almasb.fxgl.audio.Music@159d28f5
+14:30:42.200 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+14:30:42.201 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLMainMenuDummyScene and adding to MainMenu
+14:30:42.202 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLMainMenuDummyScene -> MainMenu
+14:30:43.622 [JavaFX Application Thread] DEBUG Menu                 - fireNewGame()
+14:30:43.623 [JavaFX Application Thread] DEBUG GameApplicationServi - Starting new game
+14:30:43.623 [JavaFX Application Thread] DEBUG AudioPlayer          - Stopping music com.almasb.fxgl.audio.Music@159d28f5
+14:30:43.625 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Pop state: MainMenu
+14:30:43.625 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+14:30:43.626 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from MainMenu and adding to FXGLMainMenuDummyScene
+14:30:43.627 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLMainMenuDummyScene <- MainMenu
+14:30:43.628 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+14:30:43.632 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLMainMenuDummyScene and adding to FXGLLoadingScene
+14:30:43.632 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLMainMenuDummyScene -> FXGLLoadingScene
+14:30:43.632 [JavaFX Application Thread] DEBUG GameApplicationServi - Clearing previous game
+14:30:43.632 [JavaFX Application Thread] DEBUG GameScene            - Clearing game scene
+14:30:43.632 [JavaFX Application Thread] DEBUG GameWorld            - Clearing game world
+14:30:43.632 [JavaFX Application Thread] DEBUG PhysicsWorld         - Clearing physics world
+14:30:43.634 [FXGL Background Thread 2 ] DEBUG FXGLApplication      - Initializing game
+14:30:43.635 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/music/battle.mp3
+14:30:43.699 [FXGL Background Thread 2 ] WARN  TMXLevelLoader       - TiledMap generated from 1.10.2. Supported version: 1.9.0. Some features may not be parsed fully.
+14:30:43.774 [FXGL Background Thread 2 ] DEBUG TMXLevelLoader       - Parsed TiledMap: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/levels/livello.tmx
+14:30:43.775 [FXGL Background Thread 2 ] DEBUG TMXLevelLoader       - Creating tile layer entities
+14:30:43.776 [FXGL Background Thread 2 ] DEBUG TilesetLoader        - Loading view for layer ground
+14:30:43.788 [FXGL Background Thread 2 ] DEBUG TilesetLoader        - Created buffer with size 4000.0x4000.0
+14:30:43.810 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.811 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.811 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.812 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.812 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.813 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.813 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.814 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.814 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.815 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.815 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.816 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.816 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.816 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.817 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.817 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.818 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.818 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.819 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.819 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.819 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.819 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.821 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.821 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.822 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.822 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.823 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.823 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.823 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.824 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.824 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.824 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.825 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.825 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.825 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.826 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.826 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.827 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.827 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.827 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.828 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.828 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.828 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.829 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.829 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.829 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.830 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.830 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.831 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.831 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.832 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.832 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.833 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.833 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.833 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.834 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.834 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.834 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.835 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.835 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.835 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.836 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.836 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.836 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.837 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.837 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.837 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.838 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.838 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.838 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.839 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.839 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.840 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.840 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.840 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.840 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.841 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.842 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.844 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.844 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.845 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.845 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.846 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.846 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.847 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.847 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.848 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.848 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.848 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.849 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.849 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.849 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.850 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.850 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.850 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.851 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.851 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.852 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.852 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.853 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.853 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.854 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.854 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.855 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.855 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.856 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.856 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.857 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.857 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.860 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.861 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.861 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.861 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.862 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.862 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.863 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.863 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.864 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.864 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.865 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.865 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.866 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.866 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.866 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.867 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.868 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.868 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.869 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.870 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.870 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.870 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.871 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.875 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.876 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.877 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.877 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.878 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.878 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.878 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.878 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.879 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.879 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.879 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.879 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.881 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.881 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.881 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.882 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.882 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.882 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.883 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.883 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.883 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.883 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.884 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.884 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.884 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.884 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.884 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.885 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.885 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.885 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.885 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.886 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.886 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.886 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.886 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.887 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.887 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.887 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.887 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.887 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.888 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.888 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.889 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.889 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.890 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.890 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.890 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.891 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.891 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.891 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.891 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.891 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.891 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.892 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.892 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.892 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.892 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.893 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.893 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.893 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.893 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.894 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.894 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.894 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.895 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.895 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.895 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.896 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.896 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.896 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.896 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.897 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.897 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.897 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.897 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.898 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.898 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.898 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.898 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.899 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.899 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.899 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.899 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.899 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.901 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.901 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.901 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.902 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.902 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.903 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.903 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.903 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.904 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.905 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.906 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.906 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.906 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.906 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.907 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.907 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.907 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.908 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.908 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.908 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.908 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.910 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.910 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.910 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.910 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.911 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.911 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.911 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.911 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.911 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.911 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.912 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.912 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.913 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.913 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.913 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.913 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.914 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.914 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.914 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.915 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.915 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.915 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.915 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.915 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.916 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.916 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.916 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.916 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.917 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.917 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.917 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.917 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.917 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.918 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.918 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.918 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.918 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.918 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.919 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.919 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.919 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.919 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.919 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.919 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.919 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.921 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.921 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.921 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.921 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.921 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.921 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.921 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.922 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.922 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.922 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.922 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.922 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.922 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.923 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.923 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.923 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.923 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.923 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.924 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.924 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.924 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.924 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.924 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.924 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.925 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.925 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.925 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.925 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.925 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.926 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.926 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.926 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.926 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.926 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.927 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.928 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.928 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.928 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.928 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.928 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.928 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.929 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.929 [FXGL Background Thread 2 ] WARN  TilesetLoader        - Diagonally flipped tiles are not currently supported
+14:30:43.937 [FXGL Background Thread 2 ] DEBUG TMXLevelLoader       - Creating object layer entities
+14:30:44.044 [FXGL Background Thread 2 ] DEBUG GameWorld            - Clearing removable entities
+14:30:44.045 [FXGL Background Thread 2 ] DEBUG GameWorld            - Setting level: com.almasb.fxgl.entity.level.Level@562fe9d4
+14:30:44.085 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/matteolongobardi.png
+14:30:44.089 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsalaterale/corsalaterale1.png
+14:30:44.090 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsalaterale/corsalaterale2.png
+14:30:44.091 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsalaterale/corsalaterale3.png
+14:30:44.091 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsalaterale/corsalaterale4.png
+14:30:44.092 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsalaterale/corsalaterale5.png
+14:30:44.092 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsalaterale/corsalaterale6.png
+14:30:44.093 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsasu/corsasu1.png
+14:30:44.094 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsasu/corsasu2.png
+14:30:44.095 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsasu/corsasu3.png
+14:30:44.095 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsasu/corsasu4.png
+14:30:44.096 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsasu/corsasu5.png
+14:30:44.097 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsasu/corsasu6.png
+14:30:44.097 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsagiu/corsagiu1.png
+14:30:44.098 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsagiu/corsagiu2.png
+14:30:44.098 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsagiu/corsagiu3.png
+14:30:44.099 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsagiu/corsagiu4.png
+14:30:44.099 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsagiu/corsagiu5.png
+14:30:44.101 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/corsagiu/corsagiu6.png
+14:30:44.101 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannagiu1.png
+14:30:44.102 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannagiu2.png
+14:30:44.103 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannagiu3.png
+14:30:44.104 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannagiu4.png
+14:30:44.106 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannalaterale1.png
+14:30:44.107 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannalaterale2.png
+14:30:44.108 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannalaterale3.png
+14:30:44.109 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannalaterale4.png
+14:30:44.110 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannasu1.png
+14:30:44.110 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannasu2.png
+14:30:44.111 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannasu3.png
+14:30:44.112 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/canna/cannasu4.png
+14:30:44.119 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/safficorsagiu1.png
+14:30:44.121 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/mancino.png
+14:30:44.122 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/biral.png
+14:30:44.124 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/zuccon.png
+14:30:44.125 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/distefano.png
+14:30:44.126 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/funes.png
+14:30:44.127 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/sandi.png
+14:30:44.129 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/pesenti.png
+14:30:44.131 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/penzo.png
+14:30:44.133 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/pagan.png
+14:30:44.135 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/steve.png
+14:30:44.138 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/idle1.png
+14:30:44.139 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/idle2.png
+14:30:44.141 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/groudonlaterale1.png
+14:30:44.143 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/groudonlaterale2.png
+14:30:44.144 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/groudonlaterale3.png
+14:30:44.145 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/groudonindietro1.png
+14:30:44.146 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/groudonindietro2.png
+14:30:44.147 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/groudonindietro3.png
+14:30:44.149 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/groudonavanti1.png
+14:30:44.149 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/groudonavanti2.png
+14:30:44.159 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/groudonavanti3.png
+14:30:44.161 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte1.png
+14:30:44.163 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte2.png
+14:30:44.164 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte3.png
+14:30:44.165 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte4.png
+14:30:44.166 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte5.png
+14:30:44.167 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte6.png
+14:30:44.168 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte7.png
+14:30:44.168 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte8.png
+14:30:44.169 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte9.png
+14:30:44.170 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte10.png
+14:30:44.171 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte11.png
+14:30:44.172 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/morte12.png
+14:30:44.173 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/attaccogiu1.png
+14:30:44.174 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/attaccogiu2.png
+14:30:44.175 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/attaccogiu3.png
+14:30:44.181 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/attaccolaterale1.png
+14:30:44.183 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/attaccolaterale2.png
+14:30:44.184 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/attaccolaterale3.png
+14:30:44.185 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/attaccosu1.png
+14:30:44.186 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/attaccosu2.png
+14:30:44.187 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/attaccosu3.png
+14:30:44.191 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/idle/spawn1.png
+14:30:44.192 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/idle/spawn2.png
+14:30:44.193 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/movimento/movimentolaterale/movimentolaterale1.png
+14:30:44.194 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/movimento/movimentolaterale/movimentolaterale2.png
+14:30:44.195 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/movimento/movimentolaterale/movimentolaterale3.png
+14:30:44.196 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/movimento/movimentosu/movimentosu1.png
+14:30:44.197 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/movimento/movimentosu/movimentosu2.png
+14:30:44.197 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/movimento/movimentosu/movimentosu3.png
+14:30:44.198 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/movimento/movimentogiu/movimentogiu1.png
+14:30:44.199 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/movimento/movimentogiu/movimentogiu2.png
+14:30:44.199 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/movimento/movimentogiu/movimentogiu3.png
+14:30:44.201 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/morte/morte1.png
+14:30:44.202 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/morte/morte2.png
+14:30:44.203 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/morte/morte3.png
+14:30:44.204 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/morte/morte4.png
+14:30:44.205 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/morte/morte5.png
+14:30:44.206 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/morte/morte6.png
+14:30:44.207 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/attacco/attaccogiu1.png
+14:30:44.207 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/attacco/attaccogiu2.png
+14:30:44.208 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/attacco/attaccolaterale1.png
+14:30:44.209 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/attacco/attaccolaterale2.png
+14:30:44.210 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/attacco/attaccosu1.png
+14:30:44.211 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/attacco/attaccosu2.png
+14:30:44.212 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/music/musicaSottofondo.mp3
+14:30:44.214 [FXGL Background Thread 2 ] DEBUG AudioPlayer          - Playing music com.almasb.fxgl.audio.Music@4331d5e
+14:30:44.215 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/bacheca.png
+14:30:44.216 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/groudon/iconagroudon.png
+14:30:44.218 [FXGL Background Thread 2 ] DEBUG FXGLAssetLoaderServi - Loading from file system: file:/C:/Users/MatteoLombardi/IdeaProjects/GiocoClasseQuarta/target/classes/assets/textures/lapras/iconalapras.png
+14:30:44.219 [FXGL Background Thread 2 ] INFO  FXGLApplication      - Game initialization took: 0,585 sec
+14:30:44.245 [JavaFX Application Thread] DEBUG Input                - Clearing active input actions
+14:30:44.251 [JavaFX Application Thread] DEBUG GameApplicationServi - Removing overlay from FXGLLoadingScene and adding to GameScene
+14:30:44.255 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - FXGLLoadingScene -> GameScene
+14:30:44.275 [JavaFX Application Thread] DEBUG AudioPlayer          - Stopping music com.almasb.fxgl.audio.Music@37875689
+14:30:44.275 [JavaFX Application Thread] DEBUG AudioPlayer          - Playing music com.almasb.fxgl.audio.Music@4331d5e
+14:30:49.331 [JavaFX Application Thread] DEBUG FXGLApplication      - Exiting FXGL
+14:30:49.331 [JavaFX Application Thread] DEBUG LoopRunner           - Stopping loop
+14:30:49.331 [JavaFX Application Thread] DEBUG SystemBundleService  - Saving FXGL system data
+14:30:49.332 [JavaFX Application Thread] DEBUG FileSystemAccess     - Writing to: C:\Users\MatteoLombardi\IdeaProjects\GiocoClasseQuarta\system\fxgl.bundle
+14:30:49.334 [JavaFX Application Thread] DEBUG Async                - Shutting down background threads
+14:30:49.334 [JavaFX Application Thread] DEBUG PrimaryStageWindow   - Closing main window
+14:30:49.346 [JavaFX Application Thread] DEBUG Logger               - Closing Logger
