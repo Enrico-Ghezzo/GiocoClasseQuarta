@@ -550,6 +550,9 @@ public class PokemonApplication extends GameApplication {
                     FXGL.getAudioPlayer().loopMusic(gameMusic);
                     isMusicPlaying = true;
                 }
+
+                actGroudon = false;
+                actLapras = false;
             }
         }
         catch (Exception e){
